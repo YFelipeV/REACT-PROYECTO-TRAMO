@@ -1,6 +1,25 @@
+import ModalRechazoSolicitudesRe from "./ModalRechazoSolicitudesRe"
+ import {getSolicitudesRechazadasid} from "../api/api"
+import {useState} from "react"
+
+ 
 
 
-function SolicitudesRechCard({data}) {
+function SolicitudesRechCard({ data }) {
+  const motivo = {
+    motivo: "motivoRechazoCON"
+  }
+
+   const [datos, setListas] = useState([])
+   
+         async function  load (id) {
+        let response = await getSolicitudesRechazadasid(id);
+       setListas(response);
+        console.table(response);
+         } 
+        load()
+    
+    
 
   return (
     <>
@@ -59,20 +78,23 @@ function SolicitudesRechCard({data}) {
                   Mostrar mas datos
                 </a>
                 <div className="mt-2">
-                <a
+                <button
                
-                  href=""
+                  
                   className="m-0 p-0 text-danger"
                   data-bs-toggle="modal"
-                  data-bs-target="#mas-datos"
+                  data-bs-target="#motivo-rechazo"
+                  onClick={()=> load(lista.idConductor)}
                 >
+                  
                  Motivo de rechazo
-                </a>
+                </button>
                 </div>
               </div>
             </td>
           </tr>
-          <tr></tr>
+        <tr></tr>
+        <ModalRechazoSolicitudesRe identificacion={datos} motivo={motivo} />
         </>
       ))}
     

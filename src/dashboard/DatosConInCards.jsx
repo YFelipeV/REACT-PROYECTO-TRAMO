@@ -1,8 +1,24 @@
-import { putHabilitarDatosConductor } from "../api/api";
+import { getDatosConductoresInhabilitados ,putHabilitarDatosConductor} from "../api/api";
+import {useState} from 'react';
 
 import Swal from "sweetalert2";
+import ModalRechazoSolicitudesRe from "./ModalRechazoSolicitudesRe";
 
 function DatosConInCards({ data }) {
+
+  const motivo = {
+    indice: "1",
+    motivo: "motivoInhabilitadoCON"
+  }
+
+   const [datos, setListas] = useState([])
+   
+         async function  load (id) {
+        let response = await getDatosConductoresInhabilitados(id);
+       setListas(response);
+       console.log(response)
+         }  
+        
   return (
     <>
       {data.map((lista, index) => (
@@ -65,14 +81,15 @@ function DatosConInCards({ data }) {
                   Mostrar mas datos
                 </a>
                 <br />
-                <a
-                  href=""
+                <button
+                 
                   className="m-0 p-0 text-danger"
                   data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
+                  data-bs-target="#motivo-rechazo"
+                    onClick={()=> load(lista.idConductor)}
                 >
                   Ver motivo inhabilitacion
-                </a>
+                </button>
                 <div className="mt-2">
                   <button className="btn btn-primary mb-2"
                     onClick={() => {
@@ -94,19 +111,19 @@ function DatosConInCards({ data }) {
                       });
                     }}
                   >
-                    <div
+                    
                       
-                      data-bs-toggle="modal"
-                      data-bs-target="#staticBackdrop"
-                    >
+                     
+                    
                       Habilitar
                       
-                    </div>
+                    
                   </button>
                 </div>
               </div>
             </td>
           </tr>
+          <ModalRechazoSolicitudesRe data={datos} motivo={motivo} />
         </>
       ))}
     </>

@@ -16,7 +16,7 @@ function SolicitudesCards({ data }) {
       idConductor:id
     }
 
-   const url = (`https://tramo-res-api-production.up.railway.app/admin/aceptarSoli/${user.idConductor}`);
+   const url = (`http://10.185.80.151:3000/admin/aceptarSoli/${user.idConductor}`);
    const data2 = { idConductor: user.idConductor };
    
   
