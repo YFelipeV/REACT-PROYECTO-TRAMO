@@ -19,7 +19,7 @@ function Modal({identificacion}) {
     }
       const updateData = () => {
         console.log(identificacion)
-       const url = (`http://10.185.80.151:3000/admin/rechazarSolicitud/${user.idConductor}`);
+       const url = (`http://192.168.241.202:3000/admin/rechazarSolicitud/${user.idConductor}`);
        const data2 = { motivoRechazoCON: user.motivoRechazoCON };
        
       

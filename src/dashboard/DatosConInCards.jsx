@@ -6,10 +6,7 @@ import ModalRechazoSolicitudesRe from "./ModalRechazoSolicitudesRe";
 
 function DatosConInCards({ data }) {
 
-  const motivo = {
-    indice: "1",
-    motivo: "motivoInhabilitadoCON"
-  }
+ 
 
    const [datos, setListas] = useState([])
    
@@ -30,7 +27,7 @@ function DatosConInCards({ data }) {
                   src={`https://robohash.org/user${index}`}
                   className="rounded-circle"
                   alt=""
-                  width="80%"
+                  width="50%"
                 />
               </div>
             </td>
@@ -123,7 +120,7 @@ function DatosConInCards({ data }) {
               </div>
             </td>
           </tr>
-          <ModalRechazoSolicitudesRe data={datos} motivo={motivo} />
+          <ModalRechazoSolicitudesRe identificacion={datos} />
         </>
       ))}
     </>

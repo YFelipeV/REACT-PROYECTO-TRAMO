@@ -1,34 +1,23 @@
-import ModalRechazoSolicitudesRe from "./ModalRechazoSolicitudesRe"
- import {getSolicitudesRechazadasid} from "../api/api"
-import {useState} from "react"
+import ModalRechazoSolicitudesRe from "./ModalRechazoSolicitudesRe";
 
- 
+import { useConductores } from "../Context/Context";
 
-
-function SolicitudesRechCard({ data }) {
-  const motivo = {
-    motivo: "motivoRechazoCON"
-  }
-
-   const [datos, setListas] = useState([])
-   
-         async function  load (id) {
-        let response = await getSolicitudesRechazadasid(id);
-       setListas(response);
-        console.table(response);
-         } 
-        load()
-    
-    
+function SolicitudesRechCard() {
+  const { SolicitudesRechazadas, loadSoliReMotivoRechazo } = useConductores();
 
   return (
     <>
-    {data.map((lista, index) => (
+      {SolicitudesRechazadas.map((lista, index) => (
         <>
           <tr key={index}>
-            <td >
+            <td>
               <div className="d-flex justify-content-center">
-                <img src={`https://robohash.org/user${index}`} alt="" className="rounded-circle" width="80%"></img>
+                <img
+                  src={`https://robohash.org/user${index}`}
+                  alt=""
+                  className="rounded-circle"
+                  width="50%"
+                ></img>
               </div>
             </td>
             <td className="text-center align-middle text-sm">
@@ -78,29 +67,24 @@ function SolicitudesRechCard({ data }) {
                   Mostrar mas datos
                 </a>
                 <div className="mt-2">
-                <button
-               
-                  
-                  className="m-0 p-0 text-danger"
-                  data-bs-toggle="modal"
-                  data-bs-target="#motivo-rechazo"
-                  onClick={()=> load(lista.idConductor)}
-                >
-                  
-                 Motivo de rechazo
-                </button>
+                  <button
+                    className="m-0 p-0 text-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#motivo-rechazo"
+                    onClick={() => loadSoliReMotivoRechazo(lista.idConductor)}
+                  >
+                    Motivo de rechazo
+                  </button>
                 </div>
               </div>
             </td>
           </tr>
-        <tr></tr>
-        <ModalRechazoSolicitudesRe identificacion={datos} motivo={motivo} />
+          <tr></tr>
+          <ModalRechazoSolicitudesRe />
         </>
       ))}
-    
-    
     </>
-  )
+  );
 }
 
-export default SolicitudesRechCard
+export default SolicitudesRechCard;
