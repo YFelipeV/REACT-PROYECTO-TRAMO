@@ -1,10 +1,10 @@
-import { useConductores } from "../Context/Context";
 
-function ConductoresCards() {
-  const { ConductorDisponible, ConductorServicio } = useConductores();
+
+function ConductoresCards({data} ) {
+  
   return (
     <>
-      {ConductorServicio.ConductorDisponible.map(
+      {data.map(
         ({
           idConductor,
           nombreCON,

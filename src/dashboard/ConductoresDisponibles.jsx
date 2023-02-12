@@ -4,7 +4,7 @@ import ConductoresHead from "./ConductoresHead";
 import { useConductores } from "../Context/Context";
 
 function ConductoresDisponibles() {
-  const { loadConductoresDisponibles } = useConductores();
+  const { ConductorDisponible,loadConductoresDisponibles } = useConductores();
 
   const subTitulos = ["perfil", "nombre", "telefono", "calificacion", "estado"];
 
@@ -27,7 +27,7 @@ function ConductoresDisponibles() {
                 <table className="table align-items-center mb-0">
                   <ConductoresHead subTitulos={subTitulos} />
                   <tbody>
-                    <ConductoresCards />
+                    <ConductoresCards data={ConductorDisponible} />
                   </tbody>
                 </table>
               </div>

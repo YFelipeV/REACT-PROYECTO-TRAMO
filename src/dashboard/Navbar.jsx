@@ -3,7 +3,9 @@ import Sidebar from "./Sidebar";
 import profile from "../assets/icons/profile.jpg";
 import logo from "../assets/icons/horizontal.jpg";
 import { Link } from "react-router-dom";
+
 function Navbar() {
+  
   if (document.querySelector(".toggle-sidebar-btn")) {
     document
       .querySelector(".toggle-sidebar-btn")
@@ -11,6 +13,7 @@ function Navbar() {
         document.querySelector("body").classList.toggle("toggle-sidebar");
       });
   }
+  
   return (
     <>
       <header

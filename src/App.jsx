@@ -30,9 +30,10 @@ function App() {
           path="/dashboard/datosconductores"
           element={<DatosConductores />}
         />
+        <Route path="/dashboard/datoscliente" element={<DatosCliente/>}/>
         {/* 
         
-        <Route path="/dashboard/datoscliente" element={<DatosCliente />} />
+        } />
         <Route path="/dashboard/historial" element={<Historial />} />
         <Route path="/dashboard/pqrs" element={<Pqrs />} /> */}
         </Routes>

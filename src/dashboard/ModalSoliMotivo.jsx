@@ -1,7 +1,8 @@
 import { useConductores } from "../Context/Context";
 
-function ModalRechazoSolicitudesRe() {
+function ModalSoliMotivo() {
   const { SoliReMotivoRechazo } = useConductores();
+  
 
   return (
     <>
@@ -30,7 +31,8 @@ function ModalRechazoSolicitudesRe() {
               </div>
               <div className="modal-body">
                 {/* {data.motivoRechazoCON} */}
-                {SoliReMotivoRechazo.motivoRechazoCON}
+                {SoliReMotivoRechazo.motivoRechazoCON
+}
               </div>
             </div>
           </div>
@@ -40,4 +42,4 @@ function ModalRechazoSolicitudesRe() {
   );
 }
 
-export default ModalRechazoSolicitudesRe;
+export default ModalSoliMotivo;

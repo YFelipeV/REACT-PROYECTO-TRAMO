@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom"
 import {useState} from 'react';
 
 
+
  
-function Modal({identificacion}) {
+function ModalSolicitudesRechazo({identificacion}) {
 
 
 
@@ -104,4 +105,4 @@ function Modal({identificacion}) {
   )
 }
 
-export default Modal
+export default ModalSolicitudesRechazo;
