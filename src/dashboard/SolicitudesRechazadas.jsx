@@ -36,7 +36,7 @@ function SolicitudesRechazadas() {
                   </tr>
                 </thead>
                 <tbody>
-                  <SolicitudesRechCard  />
+                  <SolicitudesRechCard />
                 </tbody>
               </table>
             </div>

@@ -1,20 +1,17 @@
 import { useConductores } from "../Context/Context";
 
-
 function ModalDatoConduMotivoInha() {
+  const { DatosConductorId } = useConductores();
 
-    const { DatosConductorId } = useConductores();
-    
   return (
-    <>
-    
-    
+    <tr>
+      <td>
         <div
           className="modal fade"
           id="motivo-rechazo"
           data-bs-backdrop="static"
           data-bs-keyboard="false"
-          tabindex="-1"
+          tabIndex={-1}
           aria-labelledby="mas-datosLabel"
           aria-hidden="true"
         >
@@ -38,12 +35,9 @@ function ModalDatoConduMotivoInha() {
             </div>
           </div>
         </div>
-      </>
-    
-    
-    
-    
-  )
+      </td>
+    </tr>
+  );
 }
 
-export default ModalDatoConduMotivoInha
+export default ModalDatoConduMotivoInha;

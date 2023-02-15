@@ -2,17 +2,16 @@ import { useConductores } from "../Context/Context";
 
 function ModalSoliMotivo() {
   const { SoliReMotivoRechazo } = useConductores();
-  
 
   return (
-    <>
-      <>
+    <tr>
+      <td>
         <div
           className="modal fade"
           id="motivo-rechazo"
           data-bs-backdrop="static"
           data-bs-keyboard="false"
-          tabindex="-1"
+          tabIndex={-1}
           aria-labelledby="mas-datosLabel"
           aria-hidden="true"
         >
@@ -31,14 +30,13 @@ function ModalSoliMotivo() {
               </div>
               <div className="modal-body">
                 {/* {data.motivoRechazoCON} */}
-                {SoliReMotivoRechazo.motivoRechazoCON
-}
+                {SoliReMotivoRechazo.motivoRechazoCON}
               </div>
             </div>
           </div>
         </div>
-      </>
-    </>
+      </td>
+    </tr>
   );
 }
 

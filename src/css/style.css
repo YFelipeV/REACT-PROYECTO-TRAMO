@@ -1,85 +1,93 @@
-
-
 /*==================================================================*/
 /* Fuentes */
 /*==================================================================*/
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,500;1,600&family=Overpass:wght@400;700&family=Poppins:wght@600&display=swap');
 
 
-*{
-   
+* {
+
     font-size: 16px;
     margin: 0;
-    
+
     padding: 0;
-    
+
 }
 
-    .dark{
-        color: #242f51;
-    }
-    .gray{
-        color: #5d5e65;
-    }
-    .green{
-        color: #40975f;
-    }
-    .bg_green{
-        background-color: #42865a;
-    }
-    .bg_gray{
-        background-color: #e2eaed;
-    }
-    .bg_azul{
-        background: #F5F7FA;
-    }
-    .font{
-        font-family: 'Poppins', sans-serif;
-    }
+.dark {
+    color: #242f51;
+}
 
-    
+.gray {
+    color: #5d5e65;
+}
+
+.green {
+    color: #40975f;
+}
+
+.bg_green {
+    background-color: #42865a;
+}
+
+.bg_gray {
+    background-color: #e2eaed;
+}
+
+.bg_azul {
+    background: #F5F7FA;
+}
+
+.font {
+    font-family: 'Poppins', sans-serif;
+}
+
+
 /*==================================================================*/
 /* NavBar Start */
 /*==================================================================*/
 
 
 
-.logonav img{
+.logonav img {
     max-width: 200px;
     margin-left: 2em;
 }
-body{
+
+body {
     background-color: white !important;
 }
 
-@media (max-width: 768px){
-    .logonav img{
+@media (max-width: 768px) {
+    .logonav img {
         width: 100%;
 
     }
-    .acercaImg{
+
+    .acercaImg {
         margin-top: 64px;
         margin-bottom: 40px;
     }
-    .ilustracion{
+
+    .ilustracion {
         margin-top: 64px;
     }
-    .conEmpresa{
+
+    .conEmpresa {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    
+
 }
 
 
-@media (max-width: 1200px){
-    .logonav img{
+@media (max-width: 1200px) {
+    .logonav img {
         width: 70%;
     }
 }
 
-.index_inicio{
+.index_inicio {
     font-family: 'Poppins', sans-serif;
     margin-top: 5em;
     margin-bottom: 2em;
@@ -88,19 +96,19 @@ body{
 /*==================================================================*/
 /* Home Start */
 /*==================================================================*/
-.index_inicios{
+.index_inicios {
     position: absolute;
     background-position: bottom;
-    background-size:cover;
+    background-size: cover;
     position: absolute;
     width: 100%;
     min-height: 100%;
-    
-    
-    
+
+
+
 }
 
-.badge{
+.badge {
     font-size: clamp(13px, 1vw, 20px);
     max-width: 330px;
 }
@@ -112,13 +120,14 @@ body{
 i {
     font-size: 2rem;
 }
-nav{
+
+nav {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
-.footer {
-    
+footer {
+
     background-color: #161627;
     color: #ffffff;
     font-size: 1rem;
@@ -209,21 +218,22 @@ nav{
 .footer__bottom .footer__list {
     flex-direction: row;
 }
-.footer__list img:hover{
-   filter: invert(10%) sepia(62%) saturate(2406%) hue-rotate(335deg) brightness(92%) contrast(88%);
-    
+
+.footer__list img:hover {
+    filter: invert(10%) sepia(62%) saturate(2406%) hue-rotate(335deg) brightness(92%) contrast(88%);
+
 }
 
-.eslogan-footeer{
+.eslogan-footeer {
     background-color: #292c3f;
     border-radius: 30px;
     padding: 20px;
-    max-width:300px;
+    max-width: 300px;
 }
 
-.img_descarga{
+.img_descarga {
     border-radius: 30px;
-    box-shadow: 11px 22px 21px -6px rgba(242,200,14,0.47);
+    box-shadow: 11px 22px 21px -6px rgba(242, 200, 14, 0.47);
 }
 
 
@@ -243,18 +253,21 @@ nav{
 /* Contacto Start */
 /*==================================================================*/
 
-ul{
+ul {
     margin: 0;
     padding: 0;
 }
-.mapa-contacto{
+
+.mapa-contacto {
     width: 100%;
 }
-.contact-area{
+
+.contact-area {
     position: relative;
     height: 400px;
 }
-.container-form-contacto{
+
+.container-form-contacto {
     position: absolute;
     background-color: #3a47ff;
     color: white;
@@ -264,15 +277,18 @@ ul{
     width: 80%;
     max-height: 550px;
 }
-.titulo-form{
+
+.titulo-form {
     font-size: 1.8rem;
     color: #e79d27;
     font-weight: 500;
 }
-.iconos-form{
+
+.iconos-form {
     display: flex;
     padding: 1.5rem 0rem;
 }
+
 .form__list-item {
     list-style: none;
     display: flex;
@@ -284,29 +300,36 @@ ul{
     color: inherit;
     transition: color .25s;
 }
+
 .form__list-link:hover {
     filter: invert(10%) sepia(42%) saturate(2406%) hue-rotate(335deg) brightness(92%) contrast(88%);
 }
-.descripcion-pregunta{
+
+.descripcion-pregunta {
     max-height: 250px;
 }
-.btn-form-contacto{
+
+.btn-form-contacto {
     background-color: #ffa743;
     color: white;
 }
-.btn-form-contacto:hover{
+
+.btn-form-contacto:hover {
     background-color: #50ff43;
     color: white;
     transition: 0.55;
 }
+
 @media (max-width: 992px) {
-    .contact-area{
+    .contact-area {
         height: 750px;
     }
-    .container-form-contacto{
+
+    .container-form-contacto {
         max-height: 900px;
     }
-    .descripcion-pregunta{
+
+    .descripcion-pregunta {
         max-height: 250px;
     }
 }
@@ -316,5 +339,55 @@ ul{
 /* Contacto End */
 /*==================================================================*/
 
+/*============================================================*/
+/* Slider Integrantes */
+.card-integrantes:hover {
+    scale: 1.02;
+}
+
+.carousel img {
+    border-radius: 50%;
+}
+
+.redes-integrantes li a {
+    background-color: #e97d10ba;
+    margin-left: 5px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.redes-integrantes li a:hover {
+    background-color: #7a5f43;
+}
+
+.redes-integrantes li a img {
+    width: 80%;
+}
+
+.carousel-pequeño {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .carousel-pequeño {
+        display: block;
+    }
+
+    .carousel-grande {
+        display: flex;
+        justify-content: center;
+    }
+}
 
 /* -------------------------------------------------------------------------------------------------- */
+/* Cards Testimonios */
+.card-testimonios .card-img-top {
+    max-width: 80px;
+    margin: 0;
+}
+
+.comillas-img {
+    width: 40px;
+    background-color: #efab2bd2;
+    margin: auto;
+}

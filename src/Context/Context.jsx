@@ -8,10 +8,10 @@ import {
   getSolicitudesRechazadasid,
   getDatosConductorHabilitados,
   getDatosConductoresInhabilitados,
- getDatosConductoresInhabilitadosId,
- getDatosClientesHabilitados,
- getDatosClientesInhabilitados
-
+  getDatosConductoresInhabilitadosId,
+  getDatosClientesHabilitados,
+  getDatosClientesInhabilitados,
+  putInhabilitarDatosConductor,
 } from "../api/api";
 
 export const ServicesContext = createContext();
@@ -30,10 +30,14 @@ export const ServicesContextProvider = ({ children }) => {
   const [SolicitudesRechazadas, setSolicitudesRechazadas] = useState([]);
   const [SoliReMotivoRechazo, setSoliReMotivoRechazo] = useState([]);
   const [DatosSoliciHabilitados, setDatosSoliciHabilitados] = useState([]);
-  const [DatosConductorInhabilitados, setDatosConductorInhabilitados] = useState([]);
-  const [DatosConductorId, setDatosConductorId] = useState([])
-  const [DatosClienteHabilitados, setDatosClienteHabilitados] = useState([])
-  const [DatosClienteInhabilitados, setDatosClienteInhabilitados] = useState([])
+  const [DatosConductorInhabilitados, setDatosConductorInhabilitados] =
+    useState([]);
+
+  const [DatosConductorId, setDatosConductorId] = useState([]);
+  const [DatosClienteHabilitados, setDatosClienteHabilitados] = useState([]);
+  const [DatosClienteInhabilitados, setDatosClienteInhabilitados] = useState(
+    []
+  );
 
   async function loadConductoresServicio() {
     let response = await getConductoresServicio();
@@ -77,30 +81,36 @@ export const ServicesContextProvider = ({ children }) => {
     console.log(response);
   }
   async function loadDatosConductorInhabilitados() {
-    let response = await  getDatosConductoresInhabilitados();
+    let response = await getDatosConductoresInhabilitados();
     setDatosConductorInhabilitados(response);
     console.log(response);
   }
 
-  async function  loadDatosConductorId (id) {
+  async function loadDatosConductorId(id) {
     let response = await getDatosConductoresInhabilitadosId(id);
     setDatosConductorId(response);
-   console.log(response)
-     } 
+    console.log(response);
+  }
 
-      {/*DATOS CLIENTE*/}
+  function updateDatosConductorInhabilitado(user) {
+    let response = putInhabilitarDatosConductor(user);
+  }
 
-     async function loadDatosClientesHabilitados() {
-      let response = await getDatosClientesHabilitados();
-      setDatosClienteHabilitados(response);
-      console.log(response);
-    }
+  {
+    /*DATOS CLIENTE*/
+  }
 
-    async function loadDatosClientesinhabilitados() {
-      let response = await getDatosClientesInhabilitados();
-      setDatosClienteInhabilitados(response);
-      console.log(response);
-    }
+  async function loadDatosClientesHabilitados() {
+    let response = await getDatosClientesHabilitados();
+    setDatosClienteHabilitados(response);
+    console.log(response);
+  }
+
+  async function loadDatosClientesinhabilitados() {
+    let response = await getDatosClientesInhabilitados();
+    setDatosClienteInhabilitados(response);
+    console.log(response);
+  }
 
   return (
     <ServicesContext.Provider
@@ -124,11 +134,8 @@ export const ServicesContextProvider = ({ children }) => {
         DatosClienteHabilitados,
         loadDatosClientesHabilitados,
         DatosClienteInhabilitados,
-        loadDatosClientesinhabilitados
-        
-
-
-
+        loadDatosClientesinhabilitados,
+        updateDatosConductorInhabilitado,
       }}
     >
       {children}

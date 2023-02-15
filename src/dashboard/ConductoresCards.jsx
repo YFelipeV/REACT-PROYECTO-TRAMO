@@ -1,7 +1,4 @@
-
-
-function ConductoresCards({data} ) {
-  
+function ConductoresCards({ data }) {
   return (
     <>
       {data.map(
@@ -12,7 +9,7 @@ function ConductoresCards({data} ) {
           calificacionCON,
           disponibilidadCON,
         }) => (
-          <>
+          
             <tr key={idConductor}>
               <td>
                 <div className="d-flex justify-content-center">
@@ -59,7 +56,7 @@ function ConductoresCards({data} ) {
                 </span>
               </td>
             </tr>
-          </>
+          
         )
       )}
     </>

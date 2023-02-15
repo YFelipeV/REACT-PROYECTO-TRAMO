@@ -1,23 +1,25 @@
 import { useState } from "react";
-import { updateData } from "../api/api";
+
+import { useConductores } from "../Context/Context";
 import Swal from "sweetalert2";
 
 function ModalDatosConductor({ identificacion }) {
+  const { updateDatosConductorInhabilitado } = useConductores();
   const [info, setInfo] = useState({});
 
   const user = {
-    motivoRechazoCON: info,
+    motivoRechazmotivoInhabilitadoCON: info,
     idConductor: identificacion,
   };
 
   return (
-    <>
+    <td>
       <div
         className="modal fade"
         id="escribir-motivo-inhabilitacion"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabindex={-1}
+        tabIndex={-1}
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
@@ -29,7 +31,7 @@ function ModalDatosConductor({ identificacion }) {
               </h1>
               <button
                 onClick={() => {
-                  navigate("/dashboard/solicitudes");
+                  navigate("/dashboard/datosconductor");
                 }}
                 className="btn-close"
                 data-bs-dismiss="modal"
@@ -68,7 +70,7 @@ function ModalDatosConductor({ identificacion }) {
                         title: "Inhabilitado Correctamente",
                         timer: "2000",
                       });
-                      button: updateData(user);
+                      button: updateDatosConductorInhabilitado(user);
                     }
                   });
                 }}
@@ -80,7 +82,7 @@ function ModalDatosConductor({ identificacion }) {
           </div>
         </div>
       </div>
-    </>
+    </td>
   );
 }
 

@@ -2,9 +2,8 @@ import { useEffect } from "react";
 import { useConductores } from "../Context/Context";
 import DatosConInCards from "./DatosConInCards";
 
-
 function DatosConduInhabili() {
-  const {  loadDatosConductorInhabilitados }=useConductores();
+  const { loadDatosConductorInhabilitados } = useConductores();
 
   useEffect(() => {
     loadDatosConductorInhabilitados();
@@ -24,15 +23,13 @@ function DatosConduInhabili() {
             <div className="table-responsive p-0">
               <table className="table align-items-center mb-2">
                 <tbody>
-                  <DatosConInCards  />
+                  <DatosConInCards />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-
-     
     </>
   );
 }

@@ -15,7 +15,7 @@ function ConductoresServicio() {
     <>
       <div className="row">
         <div className="col-12">
-          <div class="card-body px-0 pb-2">
+          <div className="card-body px-0 pb-2">
             <div className="card my-4">
               <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div className="bg-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -25,9 +25,13 @@ function ConductoresServicio() {
               <div className="card-body px-0 pb-2">
                 <div className="table-responsive p-0">
                   <table className="table align-items-center mb-0">
-                    <ConductoresHead subTitulos={subTitulos} />
+                    <thead>
+                      <tr>
+                        <ConductoresHead subTitulos={subTitulos} />
+                      </tr>
+                    </thead>
                     <tbody>
-                      <ConductoresCards  data={ConductorServicio} />
+                      <ConductoresCards data={ConductorServicio} />
                     </tbody>
                   </table>
                 </div>
