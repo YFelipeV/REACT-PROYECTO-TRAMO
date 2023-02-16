@@ -2,11 +2,12 @@ import { useConductores } from "../Context/Context";
 import ModalDatosConductor from "./ModalDatosConductor";
 
 function DatosConduCard() {
-  const { DatosSoliciHabilitados } = useConductores();
+  const { DatosConductorHabilitados, loadDatosConductorHabilitadosId } =
+    useConductores();
 
   return (
     <>
-      {DatosSoliciHabilitados.map(
+      {DatosConductorHabilitados.map(
         ({
           idConductor,
           nombreCON,
@@ -72,7 +73,10 @@ function DatosConduCard() {
                 >
                   Mostrar mas datos
                 </a>
-                <div className="mt-2">
+                <button
+                  className="mt-2 border-0 bg-white"
+                  onClick={() => loadDatosConductorHabilitadosId(idConductor)}
+                >
                   <div
                     className="btn btn-secondary mb-2 px-3 "
                     data-bs-toggle="modal"
@@ -80,13 +84,13 @@ function DatosConduCard() {
                   >
                     Inhabilitar
                   </div>
-                </div>
+                </button>
               </div>
             </td>
-            <ModalDatosConductor identificacion={idConductor} />
           </tr>
         )
       )}
+      <ModalDatosConductor />
     </>
   );
 }

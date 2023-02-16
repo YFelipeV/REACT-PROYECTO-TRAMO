@@ -3,9 +3,8 @@ import { useConductores } from "../Context/Context";
 function DatosClienteInhabilitadosCards() {
   const { DatosClienteInhabilitados } = useConductores();
 
-  
   return (
-    <tbody>
+    <>
       {DatosClienteInhabilitados.map(
         ({
           idPerJuridica,
@@ -14,7 +13,7 @@ function DatosClienteInhabilitadosCards() {
           correoElectronicoPJU,
           DireccionEmpresa,
           calificacionPJU,
-          NITempresa
+          NITempresa,
         }) => (
           <tr key={idPerJuridica}>
             <td>
@@ -90,7 +89,7 @@ function DatosClienteInhabilitadosCards() {
           </tr>
         )
       )}
-    </tbody>
+    </>
   );
 }
 

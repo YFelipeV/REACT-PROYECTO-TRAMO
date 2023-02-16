@@ -30,7 +30,9 @@ function DatosClienteInhabilitados() {
                       <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                     </tr>
                   </thead>
-                  <DatosClienteInhabilitadosCards />
+                  <tbody>
+                    <DatosClienteInhabilitadosCards />
+                  </tbody>
                 </table>
               </div>
             </div>

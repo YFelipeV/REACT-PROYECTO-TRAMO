@@ -1,12 +1,12 @@
 import { putHabilitarDatosConductor } from "../api/api";
-6;
-import { useConductores } from "../Context/Context";
 
+import { useConductores } from "../Context/Context";
 import Swal from "sweetalert2";
 import ModalDatoConduMotivoInha from "./ModalDatoConduMotivoInha";
 
 function DatosConInCards() {
-  const { DatosConductorInhabilitados, DatosConductorId } = useConductores();
+  const { DatosConductorInhabilitados, loadDatosConductorId } =
+    useConductores();
 
   return (
     <>
@@ -115,7 +115,7 @@ function DatosConInCards() {
           </tr>
         )
       )}
-      <ModalDatoConduMotivoInha identificacion={DatosConductorId} />
+      <ModalDatoConduMotivoInha />
     </>
   );
 }

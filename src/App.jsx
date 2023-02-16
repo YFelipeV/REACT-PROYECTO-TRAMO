@@ -26,8 +26,6 @@ function App() {
           <Route path="/dashboard/conductores" element={<Conductores />} />
           <Route path="/dashboard/solicitudes" element={<Solicitudes />} />
 
-          <Route path="/admin/rechazarSolicitud/:id" element={<Modal />} />
-
           <Route
             path="/dashboard/datosconductores"
             element={<DatosConductores />}

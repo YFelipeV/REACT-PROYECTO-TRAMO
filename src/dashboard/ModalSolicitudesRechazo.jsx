@@ -1,35 +1,18 @@
 import { useNavigate } from "react-router-dom";
+import { useConductores } from "../Context/Context";
+import { putSolicitudesRechazar } from "../api/api";
 
 import { useState } from "react";
+import Swal from "sweetalert2";
 
-function ModalSolicitudesRechazo({ identificacion }) {
+function ModalSolicitudesRechazo() {
+  const { SolicitudesPendientesId } = useConductores();
   const [datos, setData] = useState({});
 
   const user = {
     motivoRechazoCON: datos,
-    idConductor: identificacion,
+    idConductor: SolicitudesPendientesId.idConductor,
   };
-  const updateData = () => {
-    console.log(identificacion);
-    const url = `http://192.168.241.202:3000/admin/rechazarSolicitud/${user.idConductor}`;
-    const data2 = { motivoRechazoCON: user.motivoRechazoCON };
-
-    fetch(url, {
-      method: "PUT",
-      body: JSON.stringify(data2),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data2) => {
-        console.log(data2);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   const navigate = useNavigate();
 
   return (
@@ -85,7 +68,7 @@ function ModalSolicitudesRechazo({ identificacion }) {
                             icon: "success",
                             title: "Aceptado Correctamente",
                           });
-                          button: updateData();
+                          button: putSolicitudesRechazar(user);
                         }
                       });
                     }}

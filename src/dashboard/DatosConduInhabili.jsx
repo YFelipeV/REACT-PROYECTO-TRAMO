@@ -1,13 +1,13 @@
+import DatosConInCards from "./DatosConInCards";
 import { useEffect } from "react";
 import { useConductores } from "../Context/Context";
-import DatosConInCards from "./DatosConInCards";
-
 function DatosConduInhabili() {
   const { loadDatosConductorInhabilitados } = useConductores();
 
   useEffect(() => {
     loadDatosConductorInhabilitados();
   }, []);
+
   return (
     <>
       <div className="col-12">

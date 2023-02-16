@@ -4,14 +4,15 @@ import {
   getConductoresDisponibles,
   getSolicitudesPendientes,
   getSolicitudesRechazadas,
+  getSolicitudesPendientesid,
   updateSolicitudesPendientes,
   getSolicitudesRechazadasid,
   getDatosConductorHabilitados,
   getDatosConductoresInhabilitados,
   getDatosConductoresInhabilitadosId,
-  getDatosClientesHabilitados,
-  getDatosClientesInhabilitados,
-  putInhabilitarDatosConductor,
+  getDatosClientesHabilitadosNatural,
+  getDatosClientesInhabilitadosNatural,
+  getDatosConductorHabilitadosId,
 } from "../api/api";
 
 export const ServicesContext = createContext();
@@ -27,9 +28,15 @@ export const ServicesContextProvider = ({ children }) => {
   const [ConductorServicio, setConductorServicio] = useState([]);
   const [ConductorDisponible, setCondutorDisponible] = useState([]);
   const [SolicitudesPendientes, setSolicitudesPendientes] = useState([]);
+  const [SolicitudesPendientesId, setSolicitudesPendientesId] = useState([]);
   const [SolicitudesRechazadas, setSolicitudesRechazadas] = useState([]);
   const [SoliReMotivoRechazo, setSoliReMotivoRechazo] = useState([]);
-  const [DatosSoliciHabilitados, setDatosSoliciHabilitados] = useState([]);
+  const [DatosConductorHabilitados, setDatosConductorHabilitados] = useState(
+    []
+  );
+  const [DatosConductorHabilitadoId, setDatosConductorHabilitadoId] = useState(
+    []
+  );
   const [DatosConductorInhabilitados, setDatosConductorInhabilitados] =
     useState([]);
 
@@ -77,9 +84,16 @@ export const ServicesContextProvider = ({ children }) => {
   //habilitados
   async function loadDatosConductorHabilitado() {
     let response = await getDatosConductorHabilitados();
-    setDatosSoliciHabilitados(response);
+    setDatosConductorHabilitados(response);
     console.log(response);
   }
+
+  async function loadDatosConductorHabilitadosId(id) {
+    let response = await getDatosConductorHabilitadosId(id);
+    setDatosConductorHabilitadoId(response);
+    console.log(response);
+  }
+
   async function loadDatosConductorInhabilitados() {
     let response = await getDatosConductoresInhabilitados();
     setDatosConductorInhabilitados(response);
@@ -92,22 +106,26 @@ export const ServicesContextProvider = ({ children }) => {
     console.log(response);
   }
 
-  function updateDatosConductorInhabilitado(user) {
-    let response = putInhabilitarDatosConductor(user);
+  async function loading(id) {
+    let response = await getSolicitudesPendientesid(id);
+    setSolicitudesPendientesId(response);
+    console.log(response);
   }
+  // function updateDatosConductorInhabilitado(user) {
+  // let response = putInhabilitarDatosConductor(user);
 
   {
     /*DATOS CLIENTE*/
   }
 
   async function loadDatosClientesHabilitados() {
-    let response = await getDatosClientesHabilitados();
+    let response = await getDatosClientesHabilitadosNatural();
     setDatosClienteHabilitados(response);
     console.log(response);
   }
 
   async function loadDatosClientesinhabilitados() {
-    let response = await getDatosClientesInhabilitados();
+    let response = await getDatosClientesInhabilitadosNatural();
     setDatosClienteInhabilitados(response);
     console.log(response);
   }
@@ -125,7 +143,7 @@ export const ServicesContextProvider = ({ children }) => {
         loadSolicitudesRechazadas,
         SoliReMotivoRechazo,
         loadSoliReMotivoRechazo,
-        DatosSoliciHabilitados,
+        DatosConductorHabilitados,
         loadDatosConductorHabilitado,
         DatosConductorInhabilitados,
         loadDatosConductorInhabilitados,
@@ -135,7 +153,10 @@ export const ServicesContextProvider = ({ children }) => {
         loadDatosClientesHabilitados,
         DatosClienteInhabilitados,
         loadDatosClientesinhabilitados,
-        updateDatosConductorInhabilitado,
+        SolicitudesPendientesId,
+        loading,
+        loadDatosConductorHabilitadosId,
+        DatosConductorHabilitadoId,
       }}
     >
       {children}
