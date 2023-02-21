@@ -3,16 +3,14 @@ import About from "./Components/About";
 import { ServicesContextProvider } from "./Context/Context";
 import Contact from "./Components/Contact";
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./dashboard/Navbar";
-import Conductores from "./dashboard/Conductores";
-import Solicitudes from "./dashboard/Solicitudes";
-import DatosConductores from "./dashboard/DatosConductores";
-
-import DatosCliente from "./dashboard/DatosCliente";
-import Historial from "./dashboard/Historial";
-import Pqrs from "./dashboard/pqrs";
-import { Modal } from "bootstrap";
+import Navbar from "./dashboard/Menus/Navbar";
+import Conductores from "./pages/Conductores";
+import Solicitudes from "./pages/Solicitudes";
+import DatosConductores from "./pages/DatosConductores";
+import DatosCliente from "./Pages/DatosCliente";
 import Testimonios from "./Components/Testimonios";
+
+import DatosClienteEmpresaHabilitado from "./dashboard/datosCliente/DatosClienteEmpresaHabilitado";
 function App() {
   return (
     <>
@@ -25,12 +23,9 @@ function App() {
           <Route path="/testimonios" element={<Testimonios />} />
           <Route path="/dashboard/conductores" element={<Conductores />} />
           <Route path="/dashboard/solicitudes" element={<Solicitudes />} />
-
-          <Route
-            path="/dashboard/datosconductores"
-            element={<DatosConductores />}
-          />
-          <Route path="/dashboard/datoscliente" element={<DatosCliente />} />
+          <Route path="/dashboard/datosconductores" element={<DatosConductores/>}/>
+          <Route path="/dashboard/datoscliente" element={<DatosCliente/>} />
+          <Route path="/dashboard/datosclienteEmpresa" element={<DatosClienteEmpresaHabilitado/>} />
           {/* 
         
         } />

@@ -3,7 +3,7 @@
 }
 export const getConductoresDisponibles = async () => {
   const response = await fetch(
-    "http://tramo-server.ddns.net:3001/admin/conductoresDis"
+    "https://tramo-api-production.up.railway.app/admin/conductoresDis"
   );
   const data = response.json();
   return data;
@@ -14,7 +14,7 @@ export const getConductoresDisponibles = async () => {
 
 export const getConductoresServicio = async () => {
   const response = await fetch(
-    "http://tramo-server.ddns.net:3001/admin/conductoresEnServicio"
+    "https://tramo-api-production.up.railway.app/admin/conductoresEnServicio"
   );
   const data = response.json();
   return data;
@@ -29,7 +29,7 @@ export const getConductoresServicio = async () => {
 
 export const getSolicitudesPendientes = async () => {
   const response = await fetch(
-    "http://tramo-server.ddns.net:3001/admin/solicitudesPendiente"
+    "https://tramo-api-production.up.railway.app/admin/solicitudesPendiente"
   );
   const data = response.json();
   return data;
@@ -37,7 +37,7 @@ export const getSolicitudesPendientes = async () => {
 
 export const getSolicitudesPendientesid = async (id) => {
   const response = await fetch(
-    `http://tramo-server.ddns.net:3001/admin/solicitudesPendiente/${id}`
+    `https://tramo-api-production.up.railway.app/admin/solicitudesPendiente/${id}`
   );
   const data = response.json();
   return data;
@@ -51,7 +51,7 @@ export const updateSolicitudesPendientes = async (id) => {
   const user = {
     idConductor: id,
   };
-  const url = `http://tramo-server.ddns.net:3001/admin/aceptarSoli/${user.idConductor}`;
+  const url = `https://tramo-api-production.up.railway.app/admin/aceptarSoli/${user.idConductor}`;
   const data = { idConductor: user.idConductor };
 
   await fetch(url, {
@@ -75,7 +75,7 @@ export const updateSolicitudesPendientes = async (id) => {
   /* SOLICITUDES  ACTUALIZAR RECHAZAR */
 }
 export const putSolicitudesRechazar = (user) => {
-  const url = `http://tramo-server.ddns.net:3001/admin/rechazarSolicitud/${user.idConductor}`;
+  const url = `https://tramo-api-production.up.railway.app/admin/rechazarSolicitud/${user.idConductor}`;
   const data2 = { motivoRechazoCON: user.motivoRechazoCON };
 
   fetch(url, {
@@ -100,7 +100,7 @@ export const putSolicitudesRechazar = (user) => {
 
 export const getSolicitudesRechazadas = async () => {
   const response = await fetch(
-    "http://tramo-server.ddns.net:3001/admin/solicitudesRechazadas"
+    "https://tramo-api-production.up.railway.app/admin/solicitudesRechazadas"
   );
   const data = response.json();
   return data;
@@ -111,7 +111,7 @@ export const getSolicitudesRechazadas = async () => {
 }
 export const getSolicitudesRechazadasid = async (id) => {
   const response = await fetch(
-    `http://tramo-server.ddns.net:3001/admin/solicitudesRechazadas/${id}`
+    `https://tramo-api-production.up.railway.app/admin/solicitudesRechazadas/${id}`
   );
   const data = response.json();
   return data;
@@ -127,7 +127,7 @@ export const getSolicitudesRechazadasid = async (id) => {
 
 export const getDatosConductorHabilitados = async () => {
   const response = await fetch(
-    "http://tramo-server.ddns.net:3001/admin/datosConductoresHabilitados"
+    "https://tramo-api-production.up.railway.app/admin/datosConductoresHabilitados"
   );
   const data = response.json();
   return data;
@@ -138,7 +138,7 @@ export const getDatosConductorHabilitados = async () => {
 }
 export const getDatosConductorHabilitadosId = async (id) => {
   const response = await fetch(
-    `http://tramo-server.ddns.net:3001/admin/datosConductoresHabilitados/${id}`
+    `https://tramo-api-production.up.railway.app/admin/datosConductoresHabilitados/${id}`
   );
   const data = response.json();
   return data;
@@ -153,7 +153,7 @@ export const getDatosConductorHabilitadosId = async (id) => {
 }
 export const getDatosConductoresInhabilitados = async () => {
   const response = await fetch(
-    "http://tramo-server.ddns.net:3001/admin/datosConductoresInhabilitados"
+    "https://tramo-api-production.up.railway.app/admin/datosConductoresInhabilitados"
   );
   const data = response.json();
   return data;
@@ -162,7 +162,7 @@ export const getDatosConductoresInhabilitados = async () => {
   /* DATOS CONDUCTOR INHABILITAR */
 }
 export const putInhabilitarDatosConductor = (user) => {
-  const url = `http://tramo-server.ddns.net:3001/admin/datosInhabilitarConductor/${user.idConductor}`;
+  const url = `https://tramo-api-production.up.railway.app/admin/datosInhabilitarConductor/${user.idConductor}`;
   const data2 = { motivoInhabilitadoCON: user.motivoInhabilitadoCON };
   console.log(data2);
 
@@ -187,7 +187,7 @@ export const putInhabilitarDatosConductor = (user) => {
 }
 
 export const putHabilitarDatosConductor = (id) => {
-  const url = `http://tramo-server.ddns.net:3001/admin/datosHabilitarConductor/${id}`;
+  const url = `https://tramo-api-production.up.railway.app/admin/datosHabilitarConductor/${id}`;
   const data2 = { idConductor: id };
 
   fetch(url, {
@@ -212,7 +212,7 @@ export const putHabilitarDatosConductor = (id) => {
 
 export const getDatosConductoresInhabilitadosId = async (id) => {
   const response = await fetch(
-    `http://tramo-server.ddns.net:3001/admin/datosConductoresInhabilitados/${id}`
+    `https://tramo-api-production.up.railway.app/admin/datosConductoresInhabilitados/${id}`
   );
   const data = response.json();
   return data;
@@ -224,11 +224,35 @@ export const getDatosConductoresInhabilitadosId = async (id) => {
 
 export const getDatosClientesHabilitadosNatural = async () => {
   const response = await fetch(
-    "http://tramo-server.ddns.net:3001/admin/datosClientesNaturalHB "
+    "https://tramo-api-production.up.railway.app/admin/datosClientesNaturalHB "
   );
   const data = response.json();
   return data;
 };
+{
+  /* DATOS CLINTE UPDATE  CLIENTE NATURAL */
+}
+
+export const putinhabilitarDatosClienteNatural = (user) => {
+  const url = `https://tramo-api-production.up.railway.app/admin/datosClientesNaturalHB/${user.idPerNatural}`;
+  const data2 = { motivoInhabilitadoPNA:user.motivoInhabilitadoPNA };
+
+  fetch(url, {
+    method: "PUT",
+    body: JSON.stringify(data2),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data2) => {
+      console.log(data2);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 
 {
   /* DATOS CLINTE INHABILITADOS */
@@ -236,7 +260,51 @@ export const getDatosClientesHabilitadosNatural = async () => {
 
 export const getDatosClientesInhabilitadosNatural = async () => {
   const response = await fetch(
-    " http://tramo-server.ddns.net:3001/admin/datosClientesNaturalIN "
+    " https://tramo-api-production.up.railway.app/admin/datosClientesNaturalIN "
+  );
+  const data = response.json();
+  return data;
+};
+
+export const puthabilitarDatosClienteNatural = (idPerNatural) => {
+  const url = `https://tramo-api-production.up.railway.app/admin/datosClientesNaturalIN/${idPerNatural}`;
+  const data2 = { idPerNatural:idPerNatural };
+
+  fetch(url, {
+    method: "PUT",
+    body: JSON.stringify(data2),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data2) => {
+      console.log(data2);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+{
+  /* DATOS CLINTE NATURAL ID */
+}
+export const getDatosClienteNaturalInhabilitadoId = async (id) => {
+  const response = await fetch(
+    `https://tramo-api-production.up.railway.app/admin/datosClientesNaturalIN/${id}`
+  );
+  const data = response.json();
+  return data;
+};
+
+{
+  /* DATOS CLINTE EMPRESA HABILITADOS */
+
+}
+
+export const getDatosClientesHabilitadosEmpresa = async () => {
+  const response = await fetch(
+    "https://tramo-api-production.up.railway.app/admin/datosClientesEmpresaHB "
   );
   const data = response.json();
   return data;
@@ -244,7 +312,7 @@ export const getDatosClientesInhabilitadosNatural = async () => {
 
 // export const putInhabilitarDatosConductor = (user) => {
 //   console.log(user);
-//   const url = `http://tramo-server.ddns.net:3001/admin/datosInhabilitarConductor/${user.idConductor}`;
+//   const url = `https://tramo-api-production.up.railway.app/admin/datosInhabilitarConductor/${user.idConductor}`;
 //   const data = {
 //     motivoInhabilitadoCON: user.motivoInhabilitadoCON,
 //   };

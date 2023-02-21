@@ -13,6 +13,11 @@ import {
   getDatosClientesHabilitadosNatural,
   getDatosClientesInhabilitadosNatural,
   getDatosConductorHabilitadosId,
+  getDatosClientesHabilitadosEmpresa,
+  getDatosClienteNaturalInhabilitadoId,
+  
+
+  
 } from "../api/api";
 
 export const ServicesContext = createContext();
@@ -31,20 +36,15 @@ export const ServicesContextProvider = ({ children }) => {
   const [SolicitudesPendientesId, setSolicitudesPendientesId] = useState([]);
   const [SolicitudesRechazadas, setSolicitudesRechazadas] = useState([]);
   const [SoliReMotivoRechazo, setSoliReMotivoRechazo] = useState([]);
-  const [DatosConductorHabilitados, setDatosConductorHabilitados] = useState(
-    []
-  );
-  const [DatosConductorHabilitadoId, setDatosConductorHabilitadoId] = useState(
-    []
-  );
-  const [DatosConductorInhabilitados, setDatosConductorInhabilitados] =
-    useState([]);
-
+  const [DatosConductorHabilitados, setDatosConductorHabilitados] = useState([]);
+  const [DatosConductorHabilitadoId, setDatosConductorHabilitadoId] = useState([]);
+  const [DatosConductorInhabilitados, setDatosConductorInhabilitados] = useState([]);
   const [DatosConductorId, setDatosConductorId] = useState([]);
   const [DatosClienteHabilitados, setDatosClienteHabilitados] = useState([]);
-  const [DatosClienteInhabilitados, setDatosClienteInhabilitados] = useState(
-    []
-  );
+  const [DatosClienteInhabilitados, setDatosClienteInhabilitados] = useState([]);
+  const [DatosClientehabilitadosEmpresa, setDatosClientehabilitadosEmpresa] = useState([]);
+  const [id, setid] = useState([]);
+  const [DatosCLienteNaturalId, setDatosCLienteNaturalId] = useState([]);
 
   async function loadConductoresServicio() {
     let response = await getConductoresServicio();
@@ -129,6 +129,23 @@ export const ServicesContextProvider = ({ children }) => {
     setDatosClienteInhabilitados(response);
     console.log(response);
   }
+  
+  async function loadDatosClienteNaturalId(id) {
+    let response = await getDatosClienteNaturalInhabilitadoId(id);
+    setDatosCLienteNaturalId(response);
+    console.table(response);
+  }
+
+  async function loadDatosClientesEmpresaHabilitados() {
+    let response = await getDatosClientesHabilitadosEmpresa();
+    setDatosClientehabilitadosEmpresa(response);
+    console.log(response);
+  }
+
+  function idPersonal(id){
+    setid(id)
+    return id
+  }
 
   return (
     <ServicesContext.Provider
@@ -157,6 +174,13 @@ export const ServicesContextProvider = ({ children }) => {
         loading,
         loadDatosConductorHabilitadosId,
         DatosConductorHabilitadoId,
+        loadDatosClientesEmpresaHabilitados,
+        DatosClientehabilitadosEmpresa,
+        idPersonal,
+        id,
+        loadDatosClienteNaturalId,
+        DatosCLienteNaturalId
+
       }}
     >
       {children}
