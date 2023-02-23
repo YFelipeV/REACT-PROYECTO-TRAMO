@@ -12,6 +12,7 @@ function SolicitudesCards() {
         ({
           idConductor,
           nombreCON,
+          apellidoCON,
           nroTelefonoCON,
           nroDocumentoCON,
           correoElectronicoCON,
@@ -21,11 +22,11 @@ function SolicitudesCards() {
           
             <tr key={idConductor}>
               <td>
-                <div className="d-flex justify-content-center aling-items-center">
+                <div className="d-flex justify-content-center aling-items-center ">
                   <img
                     src={fotoperfilCON}
                     alt=""
-                    className="rounded-circle w-75"
+                    className="rounded-circle fotoperfil w-75 "
                   ></img>
                 </div>
               </td>
@@ -34,7 +35,7 @@ function SolicitudesCards() {
                   <b>Nombre</b>
                 </p>
                 <p className="font-weight-bold text-xs font-weight-bold m-0">
-                  {nombreCON}
+                  {nombreCON} {apellidoCON}
                 </p>
                 <p className="font-weight-bold text-xs font-weight-bold m-0">
                   <b>N° Telefono</b>
@@ -75,9 +76,9 @@ function SolicitudesCards() {
                   >
                     Mostrar mas datos
                   </a>
-                  <div className="mt-2">
+                  <div className="mt-2 ">
                     <button
-                      className="btn btn-primary mb-2 px-4 border-0"
+                      className="btn btn-primary mb-2 px-4 border-0 mx-2"
                       onClick={() => {
                         Swal.fire({
                           title: "¿Seguro que desea Aceptar la solicitud?",
@@ -100,7 +101,7 @@ function SolicitudesCards() {
                       Aceptar
                     </button>
                     <button
-                      className="border-0"
+                      className="border-0  "
                       onClick={() => loading(idConductor)}
                     >
                       <a

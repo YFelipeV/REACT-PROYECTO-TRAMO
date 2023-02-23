@@ -9,6 +9,8 @@ import Solicitudes from "./pages/Solicitudes";
 import DatosConductores from "./pages/DatosConductores";
 import DatosCliente from "./Pages/DatosCliente";
 import Testimonios from "./Components/Testimonios";
+import Historial from './Pages/Historial'
+import Pqrs from './Pages/Pqrs'
 
 import DatosClienteEmpresaHabilitado from "./dashboard/datosCliente/DatosClienteEmpresaHabilitado";
 function App() {
@@ -26,11 +28,10 @@ function App() {
           <Route path="/dashboard/datosconductores" element={<DatosConductores/>}/>
           <Route path="/dashboard/datoscliente" element={<DatosCliente/>} />
           <Route path="/dashboard/datosclienteEmpresa" element={<DatosClienteEmpresaHabilitado/>} />
-          {/* 
-        
-        } />
-        <Route path="/dashboard/historial" element={<Historial />} />
-        <Route path="/dashboard/pqrs" element={<Pqrs />} /> */}
+          <Route path="/dashboard/historial" element={<Historial />} />
+          
+       
+        <Route path="/dashboard/pqrs" element={<Pqrs/>} /> 
         </Routes>
       </ServicesContextProvider>
     </>

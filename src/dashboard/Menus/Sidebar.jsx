@@ -38,11 +38,7 @@ function Sidebar() {
 
         <span >
          
-       <div className="cerrar">
-    <i class="bi bi-arrow-bar-left  fs-2 dark"></i>
-    
-    <div className="dark font" style={{marginBottom:"10px", fontSize:"19px",marginLeft:"20px ",fontWeight:"600" }}>Cerrar sesion</div>
-    </div>
+       
     
     </span>
     

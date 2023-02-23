@@ -1,23 +1,22 @@
-
-import {useConductores} from "../../Context/Context"
+import { useConductores } from "../../Context/Context";
+import ModalDatosClienteEmpresa from "../Modales/ModalDatosClienteEmpresa";
 function DatosClienteEmpresaHab() {
-    const {DatosClientehabilitadosEmpresa}=useConductores()
- console.log(DatosClientehabilitadosEmpresa)
+  const { DatosClientehabilitadosEmpresa,idPersonal } = useConductores();
+ 
   return (
     <>
-    {
-
-        DatosClientehabilitadosEmpresa.map(({
-            
-            nombreEmpresa,
-            nroTelefonoPJU,
-            correoElectronicoPJU,
-            DireccionEmpresa,
-            calificacionPJU,
-            NITempresa
-
-        })=>(
-            <tr>
+      {DatosClientehabilitadosEmpresa.map(
+        ({
+          nombreEmpresa,
+          nroTelefonoPJU,
+          correoElectronicoPJU,
+          DireccionEmpresa,
+          calificacionPJU,
+          NITempresa,
+          fotoPerfilPNA,
+          idPerJuridica
+        }) => (
+          <tr key={idPerJuridica}>
             <td>
               <p className="font-weight-bold text-xs font-weight-bold m-0 text-danger">
                 <b>Cliente Empresa</b>
@@ -25,8 +24,7 @@ function DatosClienteEmpresaHab() {
 
               <div>
                 <img
-                  src={`
-                  https://robohash.org/user${1}`}
+                  src={fotoPerfilPNA}
                   alt="Profile"
                   className="rounded-circle w-75"
                 />
@@ -37,7 +35,7 @@ function DatosClienteEmpresaHab() {
                 <b>Nombre Empresa</b>
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
-                {nombreEmpresa} 
+                {nombreEmpresa}
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
                 <b>N° Telefono</b>
@@ -68,18 +66,18 @@ function DatosClienteEmpresaHab() {
                 ⭐⭐⭐⭐⭐
               </p>
               <p>
-                nit 
+                nit
                 {NITempresa}
               </p>
             </td>
             <td>
               <div className="text-center">
                 <div className="mt-5">
-                  <button 
-                 
-                    className="btn btn-secondary mb-2"
+                  <button
+                  onClick={()=>idPersonal(idPerJuridica)}
+                    className="btn btn-secondary mb-2 "
                     data-bs-toggle="modal"
-                    data-bs-target="#escribir-motivo-inhabilitacion"
+                    data-bs-target="#motivo-inhabilitacion-o"
                   >
                     Inhabilitar
                   </button>
@@ -87,11 +85,11 @@ function DatosClienteEmpresaHab() {
               </div>
             </td>
           </tr>
-
-        ))
-    }
+        )
+      )}
+        <ModalDatosClienteEmpresa/>
     </>
-  )
+  );
 }
 
-export default DatosClienteEmpresaHab
+export default DatosClienteEmpresaHab;

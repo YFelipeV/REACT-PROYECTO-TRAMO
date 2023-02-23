@@ -18,6 +18,7 @@ function DatosClienteHabilitadosCards() {
           correoElectronicoPNA,
           DireccionPNA,
           calificacionPNA,
+          fotoPerfilPNA
           
         }) => (
           <tr key={idPerNatural}>
@@ -28,8 +29,7 @@ function DatosClienteHabilitadosCards() {
 
               <div>
                 <img
-                  src={`
-                  https://robohash.org/user${idPerNatural}`}
+                  src={fotoPerfilPNA}
                   alt="Profile"
                   className="rounded-circle w-75"
                 />

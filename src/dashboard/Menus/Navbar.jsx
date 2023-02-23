@@ -4,16 +4,20 @@ import logo from '../../assets/icons/horizontal.jpg'
 import'../../css/styleAdmin.css'
 import  profile from"../../assets/icons/profile.jpg"
 import { Link } from "react-router-dom";
+import {useConductores} from '../../Context/Context'
 
 function Navbar() {
+  const {openSidebar}=useConductores()
+   
   
-  if (document.querySelector(".toggle-sidebar-btn")) {
-    document
-      .querySelector(".toggle-sidebar-btn")
-      .addEventListener("click", function (e) {
-        document.querySelector("body").classList.toggle("toggle-sidebar");
-      });
-  }
+  
+  // if (document.querySelector(".toggle-sidebar-btn")) {
+  //   document
+  //     .querySelector(".toggle-sidebar-btn")
+  //     .addEventListener("click", function (e) {
+  //       document.querySelector("body").classList.toggle("toggle-sidebar");
+  //     });
+  // }
   
   return (
     <>
@@ -26,7 +30,9 @@ function Navbar() {
             <img src={logo} alt="logo_tramo" width="230px"></img>
           </Link>
 
-          <i className="bi bi-list toggle-sidebar-btn"></i>
+          <button className="border-0 bg-white" onClick={()=>openSidebar()}>
+          <i className="i bi-list toggle-sidebar-btn"></i>
+          </button>
         </div>
 
         <nav className="header-nav ms-auto">

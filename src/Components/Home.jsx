@@ -43,7 +43,7 @@ function Home() {
               </span>
               <h1 className="mb-4 display-5 fw-bold lh-sm dark">
                 TRAMO <br className="d-block d-lg-none d-xl-block d5" />
-                Transporte y Movilidad
+               <span className="display-5 fw-bold maquina">Transporte y Movilidad</span> 
               </h1>
               <p className="mt-3 mb-4 fs-5   gray">
                 Solicita tu servicio desde cualquier lugar{" "}

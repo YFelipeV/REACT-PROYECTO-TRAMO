@@ -1,27 +1,28 @@
+
 import { useConductores } from "../../Context/Context";
-  import {puthabilitarDatosClienteNatural} from '../../api/api'
-import ModalDatosClienteMotivoInha from "../Modales/ModalDatosClienteMotivoInha";
+import {putHabilitarDatosClienteEmpresa} from '../../api/api'
 
-function DatosClienteInhabilitadosCards() {
-  const { DatosClienteInhabilitados,loadDatosClienteNaturalId } = useConductores();
+import ModalDatosClienteEmpresaMotivo from "../Modales/ModalDatosClienteEmpresaMotivo";
 
+function DatosEmpresaInha() {
+    const { DatosclienteInhabilitadosEmpresa,loadDatosClienteEmpresalId } = useConductores();
   return (
     <>
-      {DatosClienteInhabilitados.map(
+    {DatosclienteInhabilitadosEmpresa.map(
         ({
-          idPerNatural,
-          nombrePNA,
-          apellidoPNA,
-          nroTelefonoPNA,
-          correoElectronicoPNA,
-          DireccionPNA,
-          calificacionPNA,
-          fotoPerfilPNA
+          nombreEmpresa,
+          nroTelefonoPJU,
+          correoElectronicoPJU,
+          DireccionEmpresa,
+          calificacionPJU,
+          NITempresa,
+          fotoPerfilPNA,
+          idPerJuridica
         }) => (
-          <tr key={idPerNatural}>
+          <tr key={idPerJuridica}>
             <td>
               <p className="font-weight-bold text-xs font-weight-bold m-0 text-danger">
-                <b>Cliente Natural</b>
+                <b>Cliente Empresa</b>
               </p>
 
               <div>
@@ -34,16 +35,16 @@ function DatosClienteInhabilitadosCards() {
             </td>
             <td className="text-center align-middle text-sm">
               <p className="font-weight-bold text-xs font-weight-bold m-0">
-                <b>Nombre </b>
+                <b>Nombre Empresa</b>
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
-                {nombrePNA} {apellidoPNA}
+                {nombreEmpresa}
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
                 <b>N° Telefono</b>
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
-                {nroTelefonoPNA}
+                {nroTelefonoPJU}
               </p>
             </td>
             <td className="text-center align-middle text-sm">
@@ -51,51 +52,55 @@ function DatosClienteInhabilitadosCards() {
                 <b>Correo</b>
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
-                {correoElectronicoPNA}
+                {correoElectronicoPJU}
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
                 <b>Direccion</b>
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
-                {DireccionPNA}
+                {DireccionEmpresa}
               </p>
             </td>
             <td className="text-center align-middle">
               <p className="font-weight-bold text-xs font-weight-bold m-0">
-                <b>Calificacion{calificacionPNA}</b>
+                <b>Calificacion {calificacionPJU}</b>
               </p>
               <p className="font-weight-bold text-xs font-weight-bold m-0">
                 ⭐⭐⭐⭐⭐
               </p>
-              <p className="font-weight-bold text-xs font-weight-bold m-0">
+              <p>
+                nit
+                {NITempresa}
               </p>
             </td>
             <td>
-              <div className="text-center mt-4">
-                <button className="border-0  bg-white"
-                onClick={()=>loadDatosClienteNaturalId(idPerNatural)}>
+            <div className="text-center mt-4">
+                <button className="border-0 bg-white"
+                onClick={()=>loadDatosClienteEmpresalId(idPerJuridica)}>
                  
                 <a
                 
                 href=""
                 className="m-0 p-0 text-danger"
                 data-bs-toggle="modal"
-                data-bs-target="#motivo-inhabilitacion"
+                data-bs-target="#motivo-inhabilitacion-empresa"
                 >
                   Ver motivo inhabilitacion
                 </a>
                   </button>
                 <div className="mt-2">
-                  <button onClick={()=>puthabilitarDatosClienteNatural(idPerNatural)} className="btn btn-primary mb-2">Habilitar</button>
+                  <button onClick={()=>putHabilitarDatosClienteEmpresa(idPerJuridica)} className="btn btn-primary mb-2">Habilitar</button>
                 </div>
               </div>
             </td>
+          
           </tr>
         )
       )}
-      <ModalDatosClienteMotivoInha/>
+      <ModalDatosClienteEmpresaMotivo/>
+      
     </>
-  );
+  )
 }
 
-export default DatosClienteInhabilitadosCards;
+export default DatosEmpresaInha

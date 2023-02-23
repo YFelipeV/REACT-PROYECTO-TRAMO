@@ -1,34 +1,52 @@
 
-
-function PqrsCards({ data }) {
+import {useConductores} from '../../Context/Context'
+function PqrsCards() {
+  const{Pqrs}=useConductores()
   return (
     <>
-      {data.map((lista,index) => (
-        <>
-          <div key={lista.id} className="PQR rounded">
+      {Pqrs.map(({
+        name,
+        id,
+        username,
+        address,
+        
+      })=>(
+        
+          <div  key={id}className="PQR rounded mt-2">
+          <div className="card-body">
             <table id="tablas-PQR" className="pt-2">
               <tbody>
-                <tr key={index}>
-                  <td>{lista.name}</td>
+                
+                <tr >
+                  <td>{name}</td>
                   <td>Calificación</td>
                 </tr>
                 <tr>
-                  <td>{lista.id}22 854 9576</td>
+                  <td>{address.zipcode}</td>
                   <td>
-                    <i className="bi bi-star me-1 fs-5 fs-5"></i>
-                    <i className="bi bi-star me-1 fs-5 fs-5 "></i>
-                    <i className="bi bi-star me-1 fs-5 fs-5"></i>
-                    <i className="bi bi-star me-1 fs-5 fs-5"></i>
-                    <i className="bi bi-star me-1 fs-5 fs-5"></i>
+                  {id>5?"⭐⭐⭐⭐⭐⭐":
+                  id == 5
+                  ? "⭐⭐⭐⭐⭐"
+                  : id == 4
+                  ? "⭐⭐⭐⭐"
+                  : id == 3
+                  ? "⭐⭐⭐"
+                  : id == 2
+                  ? "⭐⭐"
+                  : id == 1
+                  ? "⭐"
+                  : "0"}
                   </td>
                 </tr>
                 <tr>
                   <td className="pt-3" colSpan={3}>
                     La aplicación funciona bien pero sería bueno agregarle{" "}
-                    {lista.status}...
+                    vivo...{username}
                   </td>
                 </tr>
+               
                 <tr>
+                  
                   <td
                     className="pt-3 text-center align-items-center"
                     colSpan={3}
@@ -43,11 +61,21 @@ function PqrsCards({ data }) {
                   </td>
                 </tr>
               </tbody>
+              
+              
             </table>
+            </div>
+            
           </div>
-        </>
+          
+          
+
+
       ))}
-    </>
+      
+        </>
+      
+    
   );
 }
 

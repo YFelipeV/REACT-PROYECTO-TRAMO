@@ -11,7 +11,7 @@ function DatosCliente() {
       <Navbar />
       <Sidebar />
       <main className="main" id="main">
-        <div className="d-flex justify-content-center">
+         <div className="d-flex justify-content-center">
           <button className="btn btn-success mx-2" type="submit"
           
           onClick={()=>{
@@ -25,7 +25,7 @@ function DatosCliente() {
           }}>
             Ver Cliente Empresa
           </button>
-        </div>
+        </div> 
 
         <DatosClienteHabilitados />
         <DatosClienteInhabilitados/>

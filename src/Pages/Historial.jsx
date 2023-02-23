@@ -1,37 +1,49 @@
 import Navbar from "../dashboard/Menus/Navbar";
 import Sidebar from "../dashboard/Menus/Sidebar";
-import "../../css/styleAdmin.css";
-
-import { useEffect, useState } from "react";
-
-
 import HistorialCard from "../dashboard/historial/HistorialCard";
+import { useEffect } from "react";
+import {useConductores} from '../Context/Context'
 
 function Historial() {
-  const [listas, setLista] = useState([]);
+  const { loadHistorial } = useConductores();
   useEffect(() => {
-    async function load() {
-      let response = await getPost();
-      setLista(response.results);
-      console.log(response.results);
-    }
-    load();
+    loadHistorial();
   }, []);
 
   return (
     <>
       <Navbar />
       <Sidebar />
-      <div className="main" id="main">
-        <div className="contenedor_principal_hotorial">
-          <div className="titulo4 text-white bg-primary pt-2 pb-2 mb-2 border-radius rounded">
-            HISTORIAL DE VIAJES
+      <main className="main" id="main">
+        <div className="card my-4">
+          <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div className="bg-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h4 className="text-light ps-3 ">
+                Historial de Viajes
+              </h4>
+            </div>
           </div>
-          <div className="contenedor_historial ">
-            <HistorialCard lista={listas} />
+          <div className="card-body px-0 pb-2">
+            <div className="table-responsive p-0">
+              <table className="table align-items-center mb-0">
+                <thead>
+                  <tr className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <th>CONDUCTOR</th>
+                    <th>PASAJERO</th>
+                    <th>CANTIDAD </th>
+                    <th>ESPECIFICACIONES </th>
+                    <th>VALOR</th>
+                    <th>MANIFIESTO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <HistorialCard />
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

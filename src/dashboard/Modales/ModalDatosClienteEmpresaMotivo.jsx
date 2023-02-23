@@ -1,8 +1,7 @@
-import React from 'react'
-import {useConductores} from '../../Context/Context'
 
-function ModalDatosClienteMotivoInha() {
-    const{DatosCLienteNaturalId}=useConductores()
+import { useConductores } from "../../Context/Context";
+function ModalDatosClienteEmpresaMotivo() {
+    const {DatosClienteEmpresaId } = useConductores();
     
   return (
     <>
@@ -10,7 +9,7 @@ function ModalDatosClienteMotivoInha() {
       <td>
         <div
           className="modal fade"
-          id="motivo-inhabilitacion"
+          id="motivo-inhabilitacion-empresa"
           data-bs-backdrop="static"
           data-bs-keyboard="false"
           tabIndex={-1}
@@ -31,16 +30,15 @@ function ModalDatosClienteMotivoInha() {
                 ></button>
               </div>
               <div className="modal-body">
-                {DatosCLienteNaturalId.motivoInhabilitadoPNA}
+                {DatosClienteEmpresaId.motivoInhabilitadoPJU}
               </div>
             </div>
           </div>
         </div>
       </td>
     </tr>
-    
     </>
   )
 }
 
-export default ModalDatosClienteMotivoInha
+export default ModalDatosClienteEmpresaMotivo

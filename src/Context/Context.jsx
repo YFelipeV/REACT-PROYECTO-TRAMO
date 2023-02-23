@@ -13,8 +13,14 @@ import {
   getDatosClientesHabilitadosNatural,
   getDatosClientesInhabilitadosNatural,
   getDatosConductorHabilitadosId,
-  getDatosClientesHabilitadosEmpresa,
   getDatosClienteNaturalInhabilitadoId,
+  getDatosClientesHabilitadosEmpresa,
+
+  getDatosClientesinhabilitadoEmpresa,
+  getDatosClientesinhabilitadoEmpresaId,
+  getHistorial,
+  getPqrs
+
   
 
   
@@ -45,7 +51,22 @@ export const ServicesContextProvider = ({ children }) => {
   const [DatosClientehabilitadosEmpresa, setDatosClientehabilitadosEmpresa] = useState([]);
   const [id, setid] = useState([]);
   const [DatosCLienteNaturalId, setDatosCLienteNaturalId] = useState([]);
+  const [DatosclienteInhabilitadosEmpresa,setDatosclienteInhabilitadosEmpresa]=useState([])
+  const [DatosClienteEmpresaId, setDatosCLienteEmpresaId] = useState([]);
+ 
+  const [openMenu,setOpenSidebar]=useState(false)
+  const [Historial,setHistorial]=useState([])
+  const [Pqrs,setPqrs]=useState([])
+  
 
+  
+ 
+   function openSidebar(){
+    setOpenSidebar(true)
+   if(openMenu== true){
+    document.querySelector("body").classList.toggle("toggle-sidebar");
+   }
+  }
   async function loadConductoresServicio() {
     let response = await getConductoresServicio();
     setConductorServicio(response);
@@ -142,9 +163,32 @@ export const ServicesContextProvider = ({ children }) => {
     console.log(response);
   }
 
+  async function loadDatosClientesEmpresaInhabilitados(){
+    let response=await getDatosClientesinhabilitadoEmpresa()
+    setDatosclienteInhabilitadosEmpresa(response)
+  }
+  async function loadDatosClienteEmpresalId(id) {
+    let response = await getDatosClientesinhabilitadoEmpresaId(id);
+    setDatosCLienteEmpresaId(response);
+    console.table(response);
+  }
+
   function idPersonal(id){
     setid(id)
+    console.log(id)
     return id
+  }
+  {/* HISTORIAL */}
+  async function loadHistorial(){
+    const response=await getHistorial()
+    setHistorial(response)
+    console.log(response)
+  }
+  {/* PQRS */}
+  async function loadPqrs(){
+    const response=await getPqrs()
+    setPqrs(response)
+    console.log(response)
   }
 
   return (
@@ -179,7 +223,17 @@ export const ServicesContextProvider = ({ children }) => {
         idPersonal,
         id,
         loadDatosClienteNaturalId,
-        DatosCLienteNaturalId
+        DatosCLienteNaturalId,
+        openSidebar,
+        loadHistorial,
+        Historial,
+        loadPqrs,
+        Pqrs,
+        loadDatosClientesEmpresaInhabilitados,
+        DatosclienteInhabilitadosEmpresa,
+
+        DatosClienteEmpresaId,loadDatosClienteEmpresalId
+
 
       }}
     >

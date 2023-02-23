@@ -4,6 +4,7 @@ import {useConductores} from "../../Context/Context"
 import Navbar from '../Menus/Navbar'
 import Sidebar from '../Menus/Sidebar'
 import DatosClienteEmpresaHab from './DatosClienteEmpresaHab'
+import DatosClienteEmpresaInhabilitado from './DatosClienteEmpresaInhabilitado'
 
 
 function DatosClienteEmpresaHabilitado() {
@@ -62,6 +63,7 @@ function DatosClienteEmpresaHabilitado() {
           </div>
         </div>
       </div>
+      <DatosClienteEmpresaInhabilitado/>
     
     
     </main>

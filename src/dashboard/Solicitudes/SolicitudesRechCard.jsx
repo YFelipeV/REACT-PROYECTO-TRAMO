@@ -3,6 +3,8 @@ import ModalSoliMotivo from "../Modales/ModalSoliMotivo";
 
 function SolicitudesRechCard() {
   const { loadSoliReMotivoRechazo, SolicitudesRechazadas } = useConductores();
+  
+  
 
   return (
     <>

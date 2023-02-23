@@ -13,8 +13,7 @@ function SolicitudesRechazadas() {
 
   return (
     <>
-      <Navbar />
-      <Sidebar />
+     
 
       <div className="col-12">
         <div className="card my-4">

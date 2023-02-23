@@ -105,6 +105,7 @@ h6 {
 /* Dropdown menus */
 .dropdown-menu {
   border-radius: 4px;
+  cursor: pointer;
   padding: 10px 0;
   -webkit-animation-name: dropdown-animate;
   animation-name: dropdown-animate;
@@ -174,6 +175,8 @@ h6 {
     border-top: 1px solid #eaedf1;
     border-left: 1px solid #eaedf1;
   }
+  
+
 }
 
 @-webkit-keyframes dropdown-animate {
@@ -386,6 +389,8 @@ h6 {
   .logo {
     width: 280px;
   }
+  
+   
 }
 
 .logo img {
@@ -436,7 +441,10 @@ h6 {
     transition: 0.3s;
     visibility: hidden;
     opacity: 0;
+
   }
+  
+    
 
   .header .search-bar-show {
     top: 60px;
@@ -689,22 +697,17 @@ h6 {
 }
 
 .sidebar-nav li {
-  padding: 5px;
+  padding: 0;
   margin: 0;
-  margin-top: 20px;
+  margin-top: 10px;
   list-style: none;
 }
-.cerrar{
-  display: flex;
-  cursor: pointer;
-  height: auto;
-  margin-top: 80px;
-  align-items: end;
-}
+
 
 .sidebar-nav .nav-item {
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 }
+
 
 .sidebar-nav .nav-heading {
   font-size: 11px;
@@ -728,7 +731,6 @@ h6 {
 
 .sidebar-nav .nav-link i {
   font-size: 16px;
-  margin-right: 10px;
   color: #4154f1;
 }
 
@@ -1254,6 +1256,7 @@ h6 {
   .error-404 img {
     max-width: 50%;
   }
+  
 }
 
 /*--------------------------------------------------------------
@@ -1331,47 +1334,6 @@ h6 {
 /* ________________________________________ HISTORIAL DE VIAJES _______________________________________________________ */
 
 
-.contenedor_principal_historiales {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "titulo_unico"
-    "contenido_unico";
-}
-
-.titulo4 {
-  grid-area: titulo_unico;
-  text-align: center;
-  font-weight: 600;
-  color: black;
-}
-
-.contenedor_historial {
-  grid-area: contenido_unico;
-
-  /* Contenido interior */
-  gap: 6px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-}
-
-/* CONTENIDO DATOS CLIENTE */
-
-.historial {
-  border: solid 1px;
-  border-color: rgba(216, 216, 216, 0.466);
-  border-radius: 25px;
-  background-color: white;
-}
-
-#tablas-historal {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: black;
-}
 
 /* ________________________________________ QUEJAS Y SUGERENCIAS ________________________________________ */
 
@@ -1429,6 +1391,9 @@ td {
 .manifiesto {
   margin: 0.2%;
   border: solid 1px rgb(167, 167, 167);
+  text-align: center;
+  
+  
 }
 
 #tabla_manifiesto {

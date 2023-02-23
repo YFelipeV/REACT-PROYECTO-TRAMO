@@ -8,6 +8,7 @@
 
     font-size: 16px;
     margin: 0;
+    
 
     padding: 0;
 
@@ -112,6 +113,29 @@ body {
 .badge {
     font-size: clamp(13px, 1vw, 20px);
     max-width: 330px;
+}
+.maquina{
+    display: block;
+    white-space: nowrap;
+    border-right:  5px solid rgb(23, 4, 129);
+    width: 35rem;
+    font-size: 50px;
+    animation:escribiendo 8s steps(34) ,
+    parpadeo 0.9s infinite alternate
+   
+    ;
+    overflow: hidden;
+}
+@keyframes  escribiendo{
+    from{
+        width: 0;
+    }
+}
+@keyframes parpadeo{
+    70%{
+   border-color:transparent ; 
+    }
+ 
 }
 
 /*==================================================================*/

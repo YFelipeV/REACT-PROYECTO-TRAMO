@@ -1,26 +1,23 @@
-import { useEffect } from "react";
-import { useConductores } from "../../Context/Context";
-import DatosClienteHabilitadosCards from "./DatosClienteHabilitadosCards";
+import React, { useEffect } from 'react'
+import DatosEmpresaInha from './DatosEmpresaInha'
+import {useConductores} from '../../Context/Context'
 
-function DatosClienteHabilitados() {
-  const { loadDatosClientesHabilitados } = useConductores();
-
-  useEffect(() => {
-    loadDatosClientesHabilitados();
-  }, []);
+function DatosClienteEmpresaInhabilitado() {
+const{loadDatosClientesEmpresaInhabilitados}=useConductores()
+    useEffect(()=>{
+        loadDatosClientesEmpresaInhabilitados()
+        
+    },[])
   return (
     <>
-      <div className="row">
+    <div className="row">
         <div className="col-12">
-         
           <div className="card my-4">
-          
             <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div className="bg-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h4 className="text-light ps-3">Clientes Habilitados</h4>
+              <div className="bg-danger shadow-primary border-radius-lg pt-4 pb-3">
+                <h4 className="text-light ps-3">Clientes Inhabilitados</h4>
               </div>
             </div>
-            
             <div className="card-body px-0 pb-2">
               <div className="table-responsive p-0">
                 <table className="table align-items-center mb-0">
@@ -34,7 +31,7 @@ function DatosClienteHabilitados() {
                     </tr>
                   </thead>
                   <tbody>
-                    <DatosClienteHabilitadosCards />
+                    <DatosEmpresaInha/>
                   </tbody>
                 </table>
               </div>
@@ -43,7 +40,7 @@ function DatosClienteHabilitados() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default DatosClienteHabilitados;
+export default DatosClienteEmpresaInhabilitado
