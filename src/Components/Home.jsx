@@ -20,13 +20,13 @@ import Testimonios from "./Testimonios";
 function Home() {
   return (
     <>
-      <Header />
+      
       <section className=" mb-5  index_inicio" id="home">
         <div className="container position-relative  mt-5">
           <div className="row align-items-center ">
             <div className="col-md-5 col-lg-6 order-md-1 text-center">
               <img
-                className="img-fluid"
+                className="img-fluid flotante"
                 src={imagen1}
                 style={{ maxWidth: "270px" }}
                 alt=""
@@ -36,7 +36,7 @@ function Home() {
               <span className="badge bg_gray rounded-pill text-dark align-items-center d-flex flex-row-reverse justify-content-end mx-auto mx-md-0 ps-0 w-100 w-sm-50 w-md-75 w-xl-0 my-3 ">
                 APP #1 Transporte De Carga 2023
                 <img
-                  className="img-fluid float-start me-4"
+                  className="img-fluid float-start me-4  "
                   src={imagen2}
                   alt=""
                 ></img>
@@ -102,7 +102,7 @@ function Home() {
           <div className="row align-items-center">
             <div className="col-md-4 col-lg-5 order-md-0  text-start mb-5 mb-md-0 conEmpresa">
               <img
-                className="img-fluid ilustracionEmpresa"
+                className="img-fluid ilustracionEmpresa flotante"
                 src={ilustracion}
                 style={{ maxWidth: "290px" }}
                 alt=""
@@ -122,7 +122,7 @@ function Home() {
               <div className="d-flex align-items-center mb-5">
                 <div>
                   <img
-                    className="img-fluid"
+                    className="img-fluid "
                     src={icon1}
                     width="90"
                     alt=""
@@ -140,7 +140,7 @@ function Home() {
               <div className="d-flex align-items-center mb-5">
                 <div>
                   <img
-                    className="img-fluid"
+                    className="img-fluid "
                     src={icon2}
                     width="90"
                     alt=""
@@ -159,7 +159,7 @@ function Home() {
               <div className="d-flex align-items-center mb-5">
                 <div>
                   <img
-                    className="img-fluid"
+                    className="img-fluid "
                     src={icon3}
                     width="90"
                     alt=""
@@ -209,7 +209,7 @@ function Home() {
             </div>
             <div className="col-md-5 order-md-0 text-center text-md-start pt-sm-5">
               <img
-                className="img-fluid acercaImg my-md-5 "
+                className="img-fluid acercaImg my-md-5  flotante"
                 src={acerca}
                 width="300"
                 alt=""
@@ -406,7 +406,7 @@ function Home() {
           <div className="row align-items-center">
             <div className="col-md-5 col-lg-5 order-md-1 text-center z-index-2 cta-image ">
               <img
-                className="img-fluid mb-4 mb-md-0 img_descarga ilustracion  w-75"
+                className="img-fluid mb-4 mb-md-0 img_descarga ilustracion  w-75 flotante"
                 src={ilustracion2}
                 alt=""
               ></img>

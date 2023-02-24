@@ -13,7 +13,7 @@ import celular from '../assets/icons/telefono-inteligente.gif'
 function Contact() {
   return (
     <>
-    <Header/>
+    
     <section id="faq pb-sm-5 my-5">
 
 <div className="container mt-5 py-sm-2 pt-md-5">

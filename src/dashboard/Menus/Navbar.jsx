@@ -4,11 +4,24 @@ import logo from '../../assets/icons/horizontal.jpg'
 import'../../css/styleAdmin.css'
 import  profile from"../../assets/icons/profile.jpg"
 import { Link } from "react-router-dom";
+import {validarAdmin} from '../../api/api'
+import {useEffect,useState} from 'react'
 import {useConductores} from '../../Context/Context'
 
 function Navbar() {
   const {openSidebar}=useConductores()
-   
+  const[info,setInfo]=useState("")
+  useEffect(()=>{
+    
+    const load= async ()=> {
+    let response = await validarAdmin();
+    setInfo(response);
+    console.log(response)
+  }
+  load()
+  
+},[])
+console.log(info)
   
   
   // if (document.querySelector(".toggle-sidebar-btn")) {
@@ -37,7 +50,9 @@ function Navbar() {
 
         <nav className="header-nav ms-auto">
           <ul className="d-flex align-items-center">
+          
             <li className="nav-item dropdown pe-3">
+              
               <a
                 className="nav-link nav-profile d-flex align-items-center pe-0"
                 href="#"

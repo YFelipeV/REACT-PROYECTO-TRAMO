@@ -6,16 +6,17 @@ import ilu1 from "../assets/ilustraciones/ilustracionabout1.svg";
 import ilu2 from "../assets/ilustraciones/ilustracion2.svg";
 import ilu3 from "../assets/ilustraciones/ilustracion3.svg";
 import IntegrantesSlider from "./IntegrantesSlider";
+import IntegrantesSliderGrande from "./IntegrantesSliderGrande";
 
 function About() {
   return (
     <>
-      <Header />
+      
       <section className="font">
         <div className="mt-6">
           <img className=" mt-2 img-fluid imagen" src={fondo} alt=""></img>
           <div className="mt-3 d-flex justify-content-center flex-column container w-md-75">
-            <h1 className="text-center fs-2 mt-5 dark">Acerca de Nosotros</h1>
+            <h6 className="text-center fs-2 mt-5 dark fw-bold">Acerca de Nosotros</h6>
             <div className="w-100 d-flex justify-content-center">
               <p className="text-center text-justify mt-4 fs-5 font text-secondary w-sm-100 w-md-75 ">
                 TRAMO es una aplicación que busca conectar de forma más fácil y
@@ -102,7 +103,7 @@ function About() {
             </div>
 
             <div className="col-sm-12 col-md-6 order-sm-0 order-md-2  text-center text-md-start">
-              <h2 className="mb-4 dark  fs-2">Objetivo Principal</h2>
+              <h6 className="mb-4 dark fw-bold  fs-2">Objetivo Principal</h6>
               <p className="fon text-justify fs-5  text-secondary ">
                 El enfoque de TRAMO es cambiar el método tradicional de
                 solicitar un servicio de carga, brindando mayor confianza a
@@ -117,6 +118,7 @@ function About() {
           </div>
         </div>
       </section>
+      <IntegrantesSliderGrande/>
       <IntegrantesSlider />
       <Footer />
     </>

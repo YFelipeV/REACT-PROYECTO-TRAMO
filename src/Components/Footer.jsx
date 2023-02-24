@@ -8,6 +8,7 @@ import telefono from "../assets/icons/telephone.svg";
 import geo from "../assets/icons/geo.svg";
 import email from "../assets/icons/email.svg";
 import back from "../assets/icons/back.svg";
+import negativo from '../assets/icons/negativo.png'
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -30,7 +31,7 @@ function Footer() {
         <div className="footer__container   ">
           <div className="row d-flex">
             <div className="col-12 col-md-6 col-xl-4 text-center text-md-start newsletter ">
-              <h6 className="footer__title">TRAMO S.A.S</h6>
+             <img src={negativo} style={{width:"50%"}}></img>
               <ul className="footer__list my-4 text-center">
                 <li className="footer__list-item me-2">
                   <a href="#" className="footer__list-link">

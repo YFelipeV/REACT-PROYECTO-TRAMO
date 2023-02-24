@@ -53,6 +53,25 @@
     max-width: 200px;
     margin-left: 2em;
 }
+.flotante {
+    position: relative;
+    animation-name: flotar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes flotar {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
 
 body {
@@ -113,14 +132,12 @@ body {
 .badge {
     font-size: clamp(13px, 1vw, 20px);
     max-width: 330px;
-}
-.maquina{
+}.maquina{
     display: block;
     white-space: nowrap;
     border-right:  5px solid rgb(23, 4, 129);
-    width: 35rem;
-    font-size: 50px;
-    animation:escribiendo 8s steps(34) ,
+    width: 34rem;
+    animation:escribiendo 8s steps(35) ,
     parpadeo 0.9s infinite alternate
    
     ;
@@ -132,7 +149,7 @@ body {
     }
 }
 @keyframes parpadeo{
-    70%{
+    71%{
    border-color:transparent ; 
     }
  
@@ -364,45 +381,72 @@ ul {
 /* Contacto End */
 /*==================================================================*/
 
-/*============================================================*/
-/* Slider Integrantes */
-.card-integrantes:hover {
-    scale: 1.02;
-}
 
-.carousel img {
+ /*============================================================*/
+ /* Slider Integrantes */
+ .card-integrantes:hover{
+    scale: 1.02;
+    box-shadow: #242f51;
+}
+.carousel img{
     border-radius: 50%;
 }
+.redes-integrantes{
+    list-style: none;
+    cursor: pointer;
+}
+.redes-integrantes li{
+    margin-right: 5px;
+}
 
-.redes-integrantes li a {
-    background-color: #e97d10ba;
-    margin-left: 5px;
-    padding: 4px;
+.redes-integrantes li a{
+    background-color: #242f51;
+    margin-left:5px;
+
+    padding: 5px;
     border-radius: 5px;
 }
 
-.redes-integrantes li a:hover {
-    background-color: #7a5f43;
+ .wasap:hover{
+background-color: #50ff43;
 }
+ .instagram:hover{
+    background-color: #E1306C;
+    }
 
-.redes-integrantes li a img {
+    .facebook:hover{
+        background-color: #4267B2;
+    }
+.redes-integrantes li a img{
     width: 80%;
+    margin-top: 4px;
 }
-
-.carousel-pequeño {
+.carousel-pequeño{
     display: none;
-}
+  }
 
 @media (max-width: 768px) {
-    .carousel-pequeño {
-        display: block;
+    .carousel-pequeño{
+      display: block;
     }
-
-    .carousel-grande {
+    .carousel-grande{
         display: flex;
         justify-content: center;
-    }
-}
+      }
+  }
+  /* ======================================================= */
+  /*Slider Testimonios*/
+
+  /* Cards Testimonios */
+  .card-testimonios .card-img-top{
+    max-width: 80px;
+    margin: 0;
+  }
+  .comillas-img{
+    width: 40px;
+    background-color: #efab2bd2;
+    margin: auto;
+  }
 
 /* -------------------------------------------------------------------------------------------------- */
 /* Cards Testimonios */

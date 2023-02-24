@@ -1,8 +1,10 @@
 import { useConductores } from "../../Context/Context";
 import ModalDatosClienteEmpresa from "../Modales/ModalDatosClienteEmpresa";
+
+import Estrella from "./Estrella";
 function DatosClienteEmpresaHab() {
   const { DatosClientehabilitadosEmpresa,idPersonal } = useConductores();
- 
+  
   return (
     <>
       {DatosClientehabilitadosEmpresa.map(
@@ -62,9 +64,10 @@ function DatosClienteEmpresaHab() {
               <p className="font-weight-bold text-xs font-weight-bold m-0">
                 <b>Calificacion {calificacionPJU}</b>
               </p>
-              <p className="font-weight-bold text-xs font-weight-bold m-0">
+              {/* <p className="font-weight-bold text-xs font-weight-bold m-0">
                 ⭐⭐⭐⭐⭐
-              </p>
+              </p> */}
+             
               <p>
                 nit
                 {NITempresa}

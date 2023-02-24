@@ -11,7 +11,7 @@ import wasap from "../assets/icons/whatsapp.svg";
 function IntegrantesSlider() {
   return (
     <>
-      <div className="d-flex justify-content-center bg-white d-md-none carousel-pequeño">
+      <div className="d-flex justify-content-center bg-white d-md-none carousel-pequeño font">
         <div
           id="carouselExampleFade2"
           className="carousel carousel-dark slide carousel-fade w-100 my-5"
@@ -30,20 +30,20 @@ function IntegrantesSlider() {
                 />
                 <div className="card-body">
                   <h5 className="card-title">Felipe Dulcey Idrobo</h5>
-                  <h6 className="card-title">Scrum Master</h6>
+                  <h6 className="font" >Scrum Master</h6>
                   <ul className="d-flex redes-integrantes justify-content-center">
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow wasap" target={"_blank"} href="">
                         <img src={wasap} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow " target={"_blank"} href="">
+                      <a className=" bg-yellow  instagram" target={"_blank"} href="">
                         <img src={ins} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow facebook" target={"_blank"} href="">
                         <img
                           src={facebook}
                           className=" p-2 rounded mb-2"
@@ -67,20 +67,20 @@ function IntegrantesSlider() {
                 />
                 <div className="card-body">
                   <h5 className="card-title">Carlos Noguera Cordoba</h5>
-                  <h6 className="card-title">Product Owner</h6>
+                  <h6 className="font" >Product Owner</h6>
                   <ul className="d-flex redes-integrantes justify-content-center">
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow wasap" target={"_blank"} href="">
                         <img src={wasap} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow instagram" target={"_blank"} href="">
                         <img src={ins} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow facebook" target={"_blank"} href="">
                         <img
                           src={facebook}
                           className=" p-2 rounded mb-2"
@@ -105,20 +105,20 @@ function IntegrantesSlider() {
                 />
                 <div className="card-body">
                   <h5 className="card-title">Felipe Segura Villamarin</h5>
-                  <h6 className="card-title">Full Stack Developer</h6>
+                  <h6 className="font" >Full Stack Developer</h6>
                   <ul className="d-flex redes-integrantes justify-content-center">
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow wasap" target={"_blank"} href="">
                         <img src={wasap} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow instagram" target={"_blank"} href="">
                         <img src={ins} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow facebook" target={"_blank"} href="">
                         <img
                           src={facebook}
                           className=" p-2 rounded mb-2"
@@ -142,20 +142,20 @@ function IntegrantesSlider() {
                 />
                 <div className="card-body">
                   <h5 className="card-title">Jhon Sebastian Hurtado</h5>
-                  <h6 className="card-title">Full Stack Developer</h6>
+                  <h6 className="font" >Full Stack Developer</h6>
                   <ul className="d-flex redes-integrantes justify-content-center">
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow wasap" target={"_blank"} href="">
                         <img src={wasap} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow instagram" target={"_blank"} href="">
                         <img src={ins} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow facebook" target={"_blank"} href="">
                         <img
                           src={facebook}
                           className=" p-2 rounded mb-2"
@@ -180,20 +180,20 @@ function IntegrantesSlider() {
                 />
                 <div className="card-body">
                   <h5 className="card-title">Yonatan David Pechene</h5>
-                  <h6 className="card-title">Full Stack Developer</h6>
+                  <h6 className="font" >Full Stack Developer</h6>
                   <ul className="d-flex redes-integrantes justify-content-center">
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow wasap" target={"_blank"} href="">
                         <img src={wasap} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow instagram" target={"_blank"} href="">
                         <img src={ins} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow facebook" target={"_blank"} href="">
                         <img
                           src={facebook}
                           className=" p-2 rounded mb-2"
@@ -217,20 +217,20 @@ function IntegrantesSlider() {
                 />
                 <div className="card-body">
                   <h5 className="card-title">Hernan Dario Zuñiga</h5>
-                  <h6 className="card-title">Full Stack Developer</h6>
+                  <h6  className="font">Full Stack Developer</h6>
                   <ul className="d-flex redes-integrantes justify-content-center">
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow wasap" target={"_blank"} href="">
                         <img src={wasap} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow instagram" target={"_blank"} href="">
                         <img src={ins} className=" p-2 rounded mb-2" alt="" />
                       </a>
                     </li>
                     <li>
-                      <a className=" bg-yellow" target={"_blank"} href="">
+                      <a className=" bg-yellow facebook" target={"_blank"} href="">
                         <img
                           src={facebook}
                           className=" p-2 rounded mb-2"

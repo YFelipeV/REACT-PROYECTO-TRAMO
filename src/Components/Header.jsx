@@ -1,11 +1,11 @@
 import logo from '../assets/icons/horizontal.jpg'
 
-import {Link} from 'react-router-dom'
+import {Link, Outlet} from 'react-router-dom'
 function Header() {
   return (
     <>
      <header>
-        
+        <Outlet/>
         <nav className="navbar d-flex navbar-expand-lg navbar-light fixed-top pt-3 bg-white"
       data-navbar-on-scroll="data-navbar-on-scroll">
       <div className="container-fluid">
@@ -19,18 +19,18 @@ function Header() {
           <ul className="navbar-nav ms-auto pt-2 pt-lg-0">
             <li className="nav-item"><Link className="nav-link fw-medium active fs-5 text-primary" aria-current="page"
                 to="/">Inicio</Link></li>
-            <li className="nav-item"><Link className="nav-link fw-medium fs-5 text-primary" to="/about">Acerca
+            <li className="nav-item"><Link className="nav-link fw-medium fs-5 text-primary" to="about">Acerca
                 de Nosotros
               </Link></li>
             <li className="nav-item"><Link className="nav-link fw-medium fs-5 text-primary" to="/">Testimonios</Link>
             </li>
-            <li className="nav-item"><Link className="nav-link fw-medium fs-5 text-primary" to="/contactos">Contactos</Link>
+            <li className="nav-item"><Link className="nav-link fw-medium fs-5 text-primary" to="contactos">Contactos</Link>
             </li>
             
           </ul>
           <div className="ps-lg-5">
-            <a className="btn btn-lg btn-primary rounded-pill order-0 fs-5 me-5" >Inicio
-              Sesion</a>
+            <Link to={"/login"} className="btn btn-lg btn-primary rounded-pill order-0 fs-5 me-5" >Inicio
+              Sesion</Link>
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ function DatosClienteEmpresaHabilitado() {
   return (
     <>
     <Navbar/>
-    <Sidebar/>
+    
     <main id='main' className='main'>
     <div className="d-flex justify-content-center">
           <button className="btn btn-success mx-2" type="submit"
