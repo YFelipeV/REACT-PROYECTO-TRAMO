@@ -15,7 +15,7 @@ import {validarAdmin} from './api/api'
 import {useEffect,useState} from 'react'
 
 
-import DatosClienteEmpresaHabilitado from "./dashboard/datosCliente/DatosClienteEmpresaHabilitado";
+import DatosClienteEmpresaHabilitado from "./Pages/DatosClienteEmpresa";
 import Login from "./Pages/Login";
 import AppRouter from "./Routes/AppRouter";
 

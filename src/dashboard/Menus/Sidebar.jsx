@@ -1,37 +1,37 @@
 import React from "react";
 
 import MySidebarLink from "./MySidebarLink";
-
+import { Outlet} from 'react-router-dom'
 function Sidebar() {
     
   return (
     <>
-    
+    <Outlet/>
       <aside id="sidebar" className="sidebar">
       
         <ul className="sidebar-nav" id="sidebar-nav">
           <MySidebarLink
-            goingTo={"/dashboard/conductores"}
+            goingTo={"/dashboard"}
             children={"conductores"}
           />
           <MySidebarLink
-            goingTo={"/dashboard/solicitudes"}
+            goingTo={"solicitudes"}
             children={"Solicitudes"}
           />
           <MySidebarLink
-            goingTo={"/dashboard/datosconductores"}
+            goingTo={"datosconductores"}
             children={"Datos Conductores"}
           />
           <MySidebarLink
-            goingTo={"/dashboard/datoscliente"}
+            goingTo={"datoscliente"}
             children={"Datos cliente"}
           />
           <MySidebarLink
-            goingTo={"/dashboard/historial"}
+            goingTo={"historial"}
             children={"Historial"}
           />
           <MySidebarLink
-           goingTo={"/dashboard/pqrs"} 
+           goingTo={"pqrs"} 
            children={"P.Q.R.S"} 
           />
         </ul>

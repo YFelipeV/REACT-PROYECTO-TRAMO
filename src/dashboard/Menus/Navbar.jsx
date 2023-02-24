@@ -21,7 +21,7 @@ function Navbar() {
   load()
   
 },[])
-console.log(info)
+
   
   
   // if (document.querySelector(".toggle-sidebar-btn")) {
@@ -34,10 +34,13 @@ console.log(info)
   
   return (
     <>
+    
       <header
+      
         id="header"
         className="header fixed-top d-flex align-items-center"
       >
+        
         <div className="d-flex align-items-center justify-content-between">
           <Link to="/dashboard" className="me-3">
             <img src={logo} alt="logo_tramo" width="230px"></img>

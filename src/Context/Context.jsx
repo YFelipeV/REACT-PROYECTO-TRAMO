@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useMemo, useState } from "react";
 import {
   getConductoresServicio,
   getConductoresDisponibles,
@@ -58,8 +58,29 @@ export const ServicesContextProvider = ({ children }) => {
   const [Historial,setHistorial]=useState([])
   const [Pqrs,setPqrs]=useState([])
   
-
+const MY_AUTH="MY_AUTH_APP:1"
   
+   function AuthContext({children}){
+    const [isAuthen,setIsAuthen]=useState(window.localStorage.getItem(MY_AUTH))
+    const login= useCallback(()=>{
+      window.localStorage.setItem(MY_AUTH,true)
+      setIsAuthen(true)
+    },[])
+    
+    const logout= useCallback(()=>{
+      window.localStorage.removeItem(MY_AUTH)
+      setIsAuthen(false)
+    },[])
+
+    const value =useMemo(
+      ()=>({
+      login,
+      logout,
+      isAuthen
+    }),[login,logout,isAuthen]
+    
+    )
+  }
  
    function openSidebar(){
     setOpenSidebar(true)

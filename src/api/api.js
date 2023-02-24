@@ -1,6 +1,75 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
+
+export const handleSubmit = async ({ correoAdmin, passwordAdmin }) => {
+  const response = await fetch('https://rest-api-tramo-production.up.railway.app/auth', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ correoAdmin, passwordAdmin }),
+  })
+  const { alert, alertTitle, alertMessage, alertIcon, showConfirmButton, timer, ruta, token } = await response.json();
+  if (alert) {
+    Swal.fire({
+      title: alertTitle,
+      text: alertMessage,
+      icon: alertIcon,
+      showConfirmButton: showConfirmButton,
+      timer: timer
+    }).then(() => {
+      // Almacenar el token en una variable o estado
+      const authToken = token;
+      // Llamar la función para obtener los datos protegidos usando el token como argumento
+      getDatosClientesHabilitadosEmpresa(authToken).then((data) => {
+        // Procesar los datos obtenidos
+        console.log(data);
+      });
+      // Redireccionar a la ruta
+      window.location = ruta;
+    });
+  }
+};
+
+// export const handleSubmit = async ({correoAdmin,passwordAdmin}) => {
+ 
+  
+ 
+ 
+//   const response = await fetch('https://rest-api-tramo-production.up.railway.app/auth', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ correoAdmin,passwordAdmin  }),
+//   })
+  
+  
+//   const { alert, alertTitle, alertMessage, alertIcon, showConfirmButton, timer, ruta} = await response.json();
+//   if(alert){
+//     Swal.fire({
+//       title:alertTitle,
+//       text: alertMessage,
+//       icon: alertIcon ,
+//       showConfirmButton: showConfirmButton,
+//       timer:  timer
+//     }).then(()=>{
+//       window.location=ruta
+//     })
+//   }
+//   const auth=token;
+
+//   getDatosClientesHabilitadosEmpresa(auth)
+//   getDatosClientesinhabilitadoEmpresa(auth)
+  
+  
+//   // Aquí puedes usar los valores de la respuesta para mostrar una alerta con SweetAlert2
+// };
+
+
+
+
 {
   /* CONDUCTORES  DISPONIBLE*/
 }
@@ -305,11 +374,25 @@ export const getDatosClienteNaturalInhabilitadoId = async (id) => {
 
 }
 
-export const getDatosClientesHabilitadosEmpresa = async () => {
+// export const getDatosClientesHabilitadosEmpresa = async () => {
+//   const response = await fetch(
+//     "https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaHB "
+//   );
+//   const data = response.json();
+//   return data;
+// };
+
+export const getDatosClientesHabilitadosEmpresa = async (token) => {
+  console.log(token)
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaHB "
+    "https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaHB ",
+    {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }
   );
-  const data = response.json();
+  const data = await response.json();
   return data;
 };
 {
@@ -343,9 +426,15 @@ export const putInabilitarDatosClienteEmpresa = ({idPerJuridica,motivoInhabilita
   /* DATOS CLINTE EMPRESA INHABILITADO */
 
 }
-export const getDatosClientesinhabilitadoEmpresa = async () => {
+export const getDatosClientesinhabilitadoEmpresa = async (token) => {
+  console.log(token)
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaIN "
+    "https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaIN ",
+    {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -403,35 +492,6 @@ export const getPqrs= async()=>{
 
 
 
-
- export const handleSubmit = async ({correoAdmin,passwordAdmin}) => {
-  
- 
- 
-  const response = await fetch('https://rest-api-tramo-production.up.railway.app/auth', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ correoAdmin,passwordAdmin  }),
-  })
-  console.log(response)
-  
-  const { alert, alertTitle, alertMessage, alertIcon, showConfirmButton, timer, ruta } = await response.json();
-  if(alert){
-    Swal.fire({
-      title:alertTitle,
-      text: alertMessage,
-      icon: alertIcon ,
-      showConfirmButton: showConfirmButton,
-      timer:  timer
-    }).then(()=>{
-      window.location=ruta
-    })
-  }
-  
-  // Aquí puedes usar los valores de la respuesta para mostrar una alerta con SweetAlert2
-};
 
 export const validarAdmin= async()=>{
   const response = await fetch("https://rest-api-tramo-production.up.railway.app/adminPrinci");

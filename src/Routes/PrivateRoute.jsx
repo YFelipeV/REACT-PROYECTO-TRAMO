@@ -1,15 +1,21 @@
 import React from 'react'
-import { Navigate, useLocation } from 'react-router-dom'
+import { Route, Navigate } from 'react-router-dom';
 
-export const  PrivateRoute=({children})=> {
-    const {state}=useLocation()
-  return( 
-    <>
-    state?logged ? children:<Navigate to={"/login"}/>
-    </>
-  )
-   
+
+ 
   
-}
 
-export default PrivateRoute
+
+const PrivateRoute = ({ component: Component, isAuthenticated, token, ...rest }) => (
+  
+  <Route {...rest} render={(props) => (
+    isAuthenticated && token
+      ? <Component {...props} />
+      : <Navigate to='/login' />
+  )} />
+);
+
+
+  
+  export default PrivateRoute;
+

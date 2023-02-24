@@ -1,5 +1,4 @@
-import Navbar from "../dashboard/Menus/Navbar";
-import Sidebar from "../dashboard/Menus/Sidebar";
+
 import HistorialCard from "../dashboard/historial/HistorialCard";
 import { useEffect } from "react";
 import {useConductores} from '../Context/Context'
@@ -12,8 +11,7 @@ function Historial() {
 
   return (
     <>
-      <Navbar />
-      <Sidebar />
+    
       <main className="main" id="main">
         <div className="card my-4">
           <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
-import {useConductores} from "../../Context/Context"
-import Navbar from '../Menus/Navbar'
-import Sidebar from '../Menus/Sidebar'
-import DatosClienteEmpresaHab from './DatosClienteEmpresaHab'
-import DatosClienteEmpresaInhabilitado from './DatosClienteEmpresaInhabilitado'
+import {useConductores} from "../Context/Context"
+import Navbar from '../dashboard/Menus/Navbar'
+import Sidebar from '../dashboard/Menus/Sidebar'
+import DatosClienteEmpresaHab from '../dashboard/datosCliente/DatosClienteEmpresaHab'
+import DatosClienteEmpresaInhabilitado from '../dashboard/datosCliente/DatosClienteEmpresaInhabilitado'
 
 
-function DatosClienteEmpresaHabilitado() {
+function DatosClienteEmpresa() {
   const navigate=useNavigate()
     const{loadDatosClientesEmpresaHabilitados}=useConductores()
     useEffect(()=>{
@@ -15,7 +15,7 @@ function DatosClienteEmpresaHabilitado() {
     },[])
   return (
     <>
-    <Navbar/>
+    
     
     <main id='main' className='main'>
     <div className="d-flex justify-content-center">
@@ -71,4 +71,4 @@ function DatosClienteEmpresaHabilitado() {
   )
 }
 
-export default DatosClienteEmpresaHabilitado
+export default DatosClienteEmpresa

@@ -1,5 +1,4 @@
-import Navbar from "../dashboard/Menus/Navbar";
-import Sidebar from "../dashboard/Menus/Sidebar";
+
 
 import DatosConduInhabili from "../dashboard/datosConductor/DatosConduInhabili";
 import DatosConduHabilitados from "../dashboard/datosConductor/DatosConduHabilitados";
@@ -7,8 +6,6 @@ import DatosConduHabilitados from "../dashboard/datosConductor/DatosConduHabilit
 function DatosConductores() {
   return (
     <>
-      <Navbar></Navbar>
-      <Sidebar></Sidebar>
       <main className="main" id="main">
         
         <DatosConduHabilitados />

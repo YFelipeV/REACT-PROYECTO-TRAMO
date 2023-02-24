@@ -14,8 +14,7 @@ function Pqrs() {
    }, []);
   return (
     <>
-      <Navbar />
-      <Sidebar />
+      
       <main id="main" className="main">
         <div className="contenedor_principal_PQR">
           {/* <div className="titulo5 text-white bg-primary p-4 border-radius rounded">
