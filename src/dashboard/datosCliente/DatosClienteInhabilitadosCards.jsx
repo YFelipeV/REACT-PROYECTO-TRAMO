@@ -1,13 +1,21 @@
 import { useConductores } from "../../Context/Context";
   import {puthabilitarDatosClienteNatural} from '../../api/api'
 import ModalDatosClienteMotivoInha from "../Modales/ModalDatosClienteMotivoInha";
+import {Navigate} from 'react-router-dom'
 
 function DatosClienteInhabilitadosCards() {
   const { DatosClienteInhabilitados,loadDatosClienteNaturalId } = useConductores();
 
   return (
     <>
-      {DatosClienteInhabilitados.map(
+      {
+      DatosClienteInhabilitados.login ===false ? 
+      (
+       <Navigate to={"/pagina404"}/>
+      ):
+      ( 
+    
+      DatosClienteInhabilitados.map(
         ({
           idPerNatural,
           nombrePNA,
@@ -92,7 +100,7 @@ function DatosClienteInhabilitadosCards() {
             </td>
           </tr>
         )
-      )}
+      ))}
       <ModalDatosClienteMotivoInha/>
     </>
   );

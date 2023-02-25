@@ -2,7 +2,10 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 
+
+
 export const handleSubmit = async ({ correoAdmin, passwordAdmin }) => {
+  
   const response = await fetch('https://rest-api-tramo-production.up.railway.app/auth', {
     method: 'POST',
     headers: {
@@ -10,7 +13,7 @@ export const handleSubmit = async ({ correoAdmin, passwordAdmin }) => {
     },
     body: JSON.stringify({ correoAdmin, passwordAdmin }),
   })
-  const { alert, alertTitle, alertMessage, alertIcon, showConfirmButton, timer, ruta, token } = await response.json();
+  const { alert, alertTitle, alertMessage, alertIcon, showConfirmButton, timer, ruta, token,login } = await response.json();
   if (alert) {
     Swal.fire({
       title: alertTitle,
@@ -19,18 +22,24 @@ export const handleSubmit = async ({ correoAdmin, passwordAdmin }) => {
       showConfirmButton: showConfirmButton,
       timer: timer
     }).then(() => {
+      
       // Almacenar el token en una variable o estado
       const authToken = token;
+      localStorage.setItem("token",authToken);
+
+      console.log(authToken)
       // Llamar la función para obtener los datos protegidos usando el token como argumento
-      getDatosClientesHabilitadosEmpresa(authToken).then((data) => {
-        // Procesar los datos obtenidos
-        console.log(data);
-      });
+      
       // Redireccionar a la ruta
       window.location = ruta;
+      
     });
+    
   }
 };
+
+
+
 
 // export const handleSubmit = async ({correoAdmin,passwordAdmin}) => {
  
@@ -74,22 +83,48 @@ export const handleSubmit = async ({ correoAdmin, passwordAdmin }) => {
   /* CONDUCTORES  DISPONIBLE*/
 }
 export const getConductoresDisponibles = async () => {
+  
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/conductoresDis"
+    "https://rest-api-tramo-production.up.railway.app/admin/conductoresDis",
+    
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    },
+      
+     
   );
   const data = response.json();
-  return data;
+  
+  
+    return data
+    
+  
+  
+  
+  
 };
+
+
+
 {
   /* CONDUCTORES  SERVICIO*/
 }
 
 export const getConductoresServicio = async () => {
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/conductoresEnServicio"
+    "https://rest-api-tramo-production.up.railway.app/admin/conductoresEnServicio",
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
-  return data;
+  
+      return data
+    
 };
 {
   /* SOLICITUDES */
@@ -101,7 +136,12 @@ export const getConductoresServicio = async () => {
 
 export const getSolicitudesPendientes = async () => {
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/solicitudesPendiente"
+    "https://rest-api-tramo-production.up.railway.app/admin/solicitudesPendiente",
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -109,7 +149,12 @@ export const getSolicitudesPendientes = async () => {
 
 export const getSolicitudesPendientesid = async (id) => {
   const response = await fetch(
-    `https://rest-api-tramo-production.up.railway.app/admin/solicitudesPendiente/${id}`
+    `https://rest-api-tramo-production.up.railway.app/admin/solicitudesPendiente/${id}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -129,9 +174,11 @@ export const updateSolicitudesPendientes = async (id) => {
   await fetch(url, {
     method: "PUT",
     body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    
   })
     .then((res) => res.json())
     .then((data) => {
@@ -153,9 +200,11 @@ export const putSolicitudesRechazar = (user) => {
   fetch(url, {
     method: "PUT",
     body: JSON.stringify(data2),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      
+    }
   })
     .then((res) => res.json())
     .then((data2) => {
@@ -172,7 +221,12 @@ export const putSolicitudesRechazar = (user) => {
 
 export const getSolicitudesRechazadas = async () => {
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/solicitudesRechazadas"
+    "https://rest-api-tramo-production.up.railway.app/admin/solicitudesRechazadas",
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -183,7 +237,12 @@ export const getSolicitudesRechazadas = async () => {
 }
 export const getSolicitudesRechazadasid = async (id) => {
   const response = await fetch(
-    `https://rest-api-tramo-production.up.railway.app/admin/solicitudesRechazadas/${id}`
+    `https://rest-api-tramo-production.up.railway.app/admin/solicitudesRechazadas/${id}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -199,7 +258,12 @@ export const getSolicitudesRechazadasid = async (id) => {
 
 export const getDatosConductorHabilitados = async () => {
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/datosConductoresHabilitados"
+    "https://rest-api-tramo-production.up.railway.app/admin/datosConductoresHabilitados",
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -210,7 +274,12 @@ export const getDatosConductorHabilitados = async () => {
 }
 export const getDatosConductorHabilitadosId = async (id) => {
   const response = await fetch(
-    `https://rest-api-tramo-production.up.railway.app/admin/datosConductoresHabilitados/${id}`
+    `https://rest-api-tramo-production.up.railway.app/admin/datosConductoresHabilitados/${id}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -225,7 +294,12 @@ export const getDatosConductorHabilitadosId = async (id) => {
 }
 export const getDatosConductoresInhabilitados = async () => {
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/datosConductoresInhabilitados"
+    "https://rest-api-tramo-production.up.railway.app/admin/datosConductoresInhabilitados",
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -241,9 +315,11 @@ export const putInhabilitarDatosConductor = (user) => {
   fetch(url, {
     method: "PUT",
     body: JSON.stringify(data2),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    
   })
     .then((res) => res.json())
     .then((data2) => {
@@ -265,9 +341,11 @@ export const putHabilitarDatosConductor = (id) => {
   fetch(url, {
     method: "PUT",
     body: JSON.stringify(data2),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    
   })
     .then((res) => res.json())
     .then((data2) => {
@@ -284,7 +362,12 @@ export const putHabilitarDatosConductor = (id) => {
 
 export const getDatosConductoresInhabilitadosId = async (id) => {
   const response = await fetch(
-    `https://rest-api-tramo-production.up.railway.app/admin/datosConductoresInhabilitados/${id}`
+    `https://rest-api-tramo-production.up.railway.app/admin/datosConductoresInhabilitados/${id}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -296,7 +379,12 @@ export const getDatosConductoresInhabilitadosId = async (id) => {
 
 export const getDatosClientesHabilitadosNatural = async () => {
   const response = await fetch(
-    "https://rest-api-tramo-production.up.railway.app/admin/datosClientesNaturalHB "
+    "https://rest-api-tramo-production.up.railway.app/admin/datosClientesNaturalHB ",
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -312,9 +400,11 @@ export const putinhabilitarDatosClienteNatural = (user) => {
   fetch(url, {
     method: "PUT",
     body: JSON.stringify(data2),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    
   })
     .then((res) => res.json())
     .then((data2) => {
@@ -332,7 +422,12 @@ export const putinhabilitarDatosClienteNatural = (user) => {
 
 export const getDatosClientesInhabilitadosNatural = async () => {
   const response = await fetch(
-    " https://rest-api-tramo-production.up.railway.app/admin/datosClientesNaturalIN "
+    " https://rest-api-tramo-production.up.railway.app/admin/datosClientesNaturalIN ",
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -345,9 +440,11 @@ export const puthabilitarDatosClienteNatural = (idPerNatural) => {
   fetch(url, {
     method: "PUT",
     body: JSON.stringify(data2),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    
   })
     .then((res) => res.json())
     .then((data2) => {
@@ -363,7 +460,12 @@ export const puthabilitarDatosClienteNatural = (idPerNatural) => {
 }
 export const getDatosClienteNaturalInhabilitadoId = async (id) => {
   const response = await fetch(
-    `https://rest-api-tramo-production.up.railway.app/admin/datosClientesNaturalIN/${id}`
+    `https://rest-api-tramo-production.up.railway.app/admin/datosClientesNaturalIN/${id}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -382,13 +484,14 @@ export const getDatosClienteNaturalInhabilitadoId = async (id) => {
 //   return data;
 // };
 
-export const getDatosClientesHabilitadosEmpresa = async (token) => {
-  console.log(token)
+export const getDatosClientesHabilitadosEmpresa = async () => {
+  
+  // const token = localStorage.getItem("token");
   const response = await fetch(
     "https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaHB ",
     {
       headers: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
       }
     }
   );
@@ -407,8 +510,10 @@ export const putInabilitarDatosClienteEmpresa = ({idPerJuridica,motivoInhabilita
   fetch(url, {
     method: "PUT",
     body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
+    
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      
     },
   })
     .then((res) => res.json())
@@ -426,13 +531,14 @@ export const putInabilitarDatosClienteEmpresa = ({idPerJuridica,motivoInhabilita
   /* DATOS CLINTE EMPRESA INHABILITADO */
 
 }
-export const getDatosClientesinhabilitadoEmpresa = async (token) => {
-  console.log(token)
+export const getDatosClientesinhabilitadoEmpresa = async () => {
+  const Auth=localStorage.getItem("token")
+  // const token = localStorage.getItem("token");
   const response = await fetch(
     "https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaIN ",
     {
       headers: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
       }
     }
   );
@@ -448,9 +554,11 @@ export const putHabilitarDatosClienteEmpresa = (idPerJuridica) => {
   fetch(url, {
     method: "PUT",
     body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    
   })
     .then((res) => res.json())
     .then((data) => {
@@ -463,7 +571,12 @@ export const putHabilitarDatosClienteEmpresa = (idPerJuridica) => {
 
 export const getDatosClientesinhabilitadoEmpresaId = async (id) => {
   const response = await fetch(
-    `https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaIN/${id} `
+    `https://rest-api-tramo-production.up.railway.app/admin/datosClientesEmpresaIN/${id} `,
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+    }
   );
   const data = response.json();
   return data;
@@ -497,6 +610,14 @@ export const validarAdmin= async()=>{
   const response = await fetch("https://rest-api-tramo-production.up.railway.app/adminPrinci");
   const data=response .json();
  
+  return data;
+  
+}
+
+export const Loguot= async()=>{
+  const response = await fetch("https://rest-api-tramo-production.up.railway.app/logout");
+  const data=response .json();
+  localStorage.removeItem('token')
   return data;
   
 }

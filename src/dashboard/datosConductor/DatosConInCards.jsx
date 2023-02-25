@@ -3,6 +3,7 @@ import { putHabilitarDatosConductor } from "../../api/api";
 import { useConductores } from "../../Context/Context";
 import Swal from "sweetalert2";
 import ModalDatoConduMotivoInha from "../Modales/ModalDatoConduMotivoInha";
+import {Navigate} from 'react-router-dom'
 
 function DatosConInCards() {
   const { DatosConductorInhabilitados, loadDatosConductorId } =
@@ -10,7 +11,17 @@ function DatosConInCards() {
 
   return (
     <>
-      {DatosConductorInhabilitados.map(
+      {
+        DatosConductorInhabilitados.login ===false ? 
+        (
+         <Navigate to={"/pagina404"}/>
+        ):
+        ( 
+      
+      
+      
+      
+      DatosConductorInhabilitados.map(
         ({
           idConductor,
           nombreCON,
@@ -115,7 +126,7 @@ function DatosConInCards() {
             </td>
           </tr>
         )
-      )}
+      ))}
       <ModalDatoConduMotivoInha />
     </>
   );

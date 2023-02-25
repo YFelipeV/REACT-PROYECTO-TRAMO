@@ -1,13 +1,22 @@
 import { useConductores } from "../../Context/Context";
 import ModalDatosConductor from "../Modales/ModalDatosConductor";
-
+import {Navigate} from 'react-router-dom'
 function DatosConduCard() {
   const { DatosConductorHabilitados, loadDatosConductorHabilitadosId } =
     useConductores();
 
   return (
     <>
-      {DatosConductorHabilitados.map(
+      {
+      DatosConductorHabilitados.login ===false ? 
+      (
+       <Navigate to={"/pagina404"}/>
+      ):
+      ( 
+    
+      
+      
+      DatosConductorHabilitados.map(
         ({
           idConductor,
           nombreCON,
@@ -90,7 +99,7 @@ function DatosConduCard() {
             </td>
           </tr>
         )
-      )}
+      ))}
       <ModalDatosConductor />
     </>
   );

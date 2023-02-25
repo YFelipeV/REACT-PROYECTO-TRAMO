@@ -3,45 +3,29 @@ import { Home, About, Contact, Header } from "../Components";
 import Navbar from "../dashboard/Menus/Navbar";
 import Conductores from "../pages/Conductores";
 import Login from "../Pages/Login";
-import PrivateRoute from "../Routes/PrivateRoute";
-import {validarAdmin} from '../api/api'
-import {useEffect,useState} from 'react'
 import Solicitudes from "../pages/Solicitudes";
 import DatosCliente from "../Pages/DatosCliente";
 import DatosConductores from "../pages/DatosConductores";
 import Historial from "../Pages/Historial";
 import Pqrs from "../Pages/Pqrs";
 import DatosClienteEmpresa from "../Pages/DatosClienteEmpresa";
+import Pagina404 from "../Pages/Pagina404";
+
+import { useConductores } from "../Context/Context";
 
 export const AppRouter = () => {
- 
-  
-
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [token, setToken] = useState('');
-  useEffect(() => {
-    const fetchToken = async () => {
-      const response = await validarAdmin(); // Llamada a la API para validar el token
-      if (response.ok) {
-        setIsAuthenticated(true);
-        setToken(response.token);
-      }
-    }
-    fetchToken();
-  }, []);
-  
+  const { DatosConductorHabilitados } = useConductores();
   return (
     <>
-    {/* PUBLICAS*/}
+      {/* PUBLICAS*/}
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contactos" element={<Contact />} />
         </Route>
-        <Route  path="Login" element={<Login/>} />
-
-
+        <Route path="Login" element={<Login />} />
+        <Route path="404" element={<Pagina404 />} />
         {/* <Route path="/dashboard" element={<Navbar />} />
           <PrivateRoute
             path="/"
@@ -85,10 +69,8 @@ export const AppRouter = () => {
             isAuthenticated={isAuthenticated}
             token={token}
           /> */}
-       
-        {/* PRIVADAS*/}
-        * 
-          <Route path="/dashboard"  element={<Navbar/>} >
+        {/* PRIVADAS*/}*
+        <Route path="/dashboard" element={<Navbar />}>
           <Route index element={<Conductores />} />
           <Route path="solicitudes" element={<Solicitudes />} />
           <Route path="datosconductores" element={<DatosConductores />} />
@@ -96,8 +78,9 @@ export const AppRouter = () => {
           <Route path="datosclienteEmpresa" element={<DatosClienteEmpresa />} />
           <Route path="historial" element={<Historial />} />
           <Route path="pqrs" element={<Pqrs />} />
-          </Route> *
-          {/* <Route path="login" element={<Login setIsAuthenticated={setIsAuthenticated} />} >
+        </Route>
+        <Route path="/pagina404" element={<Pagina404 />} />
+        {/* <Route path="login" element={<Login setIsAuthenticated={setIsAuthenticated} />} >
         <PrivateRoute
           path="/dashboard"
           element={<Navbar />}
@@ -113,8 +96,16 @@ export const AppRouter = () => {
         </PrivateRoute>
            
         </Route> */}
-
-           
+        {/* <PrivateRoute isAuthenticated={isAuthenticated} path="/dashboard" element={<Navbar />}>
+          <Route index element={<Conductores />} />
+          <PrivateRoute isAuthenticated={isAuthenticated} path="solicitudes" element={<Solicitudes />} />
+          <PrivateRoute isAuthenticated={isAuthenticated} path="datosconductores" element={<DatosConductores />} />
+          <PrivateRoute isAuthenticated={isAuthenticated} path="datoscliente" element={<DatosCliente />} />
+          <PrivateRoute isAuthenticated={isAuthenticated} path="datosclienteEmpresa" element={<DatosClienteEmpresa />} />
+          <PrivateRoute isAuthenticated={isAuthenticated} path="historial" element={<Historial />} />
+          <PrivateRoute isAuthenticated={isAuthenticated} path="pqrs" element={<Pqrs />} />
+        </PrivateRoute> */}
+        {/* ruta por defecto */}
       </Routes>
     </>
   );

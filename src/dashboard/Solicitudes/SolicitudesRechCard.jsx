@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import { useConductores } from "../../Context/Context";
 import ModalSoliMotivo from "../Modales/ModalSoliMotivo";
 
@@ -8,7 +9,14 @@ function SolicitudesRechCard() {
 
   return (
     <>
-      {SolicitudesRechazadas.map(
+      {
+      SolicitudesRechazadas.login ===false ? 
+      (
+       <Navigate to={"/pagina404"}/>
+      ):
+      ( 
+    
+      SolicitudesRechazadas.map(
         ({
           idConductor,
           nombreCON,
@@ -90,7 +98,7 @@ function SolicitudesRechCard() {
             </td>
           </tr>
         )
-      )}
+      ))}
       <ModalSoliMotivo />
     </>
   );

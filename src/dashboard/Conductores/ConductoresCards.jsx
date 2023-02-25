@@ -1,9 +1,21 @@
+import { Navigate } from "react-router-dom";
+
+
 function ConductoresCards({ data }) {
   
+
  
   return (
     <>
-      {data.map(
+     {
+        data.login ===false ? 
+        (
+         <Navigate to={"/pagina404"}/>
+        ):
+        ( 
+      
+      
+      data.map(
         ({
           idConductor,
           nombreCON,
@@ -59,7 +71,7 @@ function ConductoresCards({ data }) {
             </td>
           </tr>
         )
-      )}
+      ))}
     </>
   );
 }

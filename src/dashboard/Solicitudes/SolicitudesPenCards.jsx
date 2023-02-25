@@ -2,13 +2,20 @@ import { updateSolicitudesPendientes } from "../../api/api";
 import ModalSolicitudesRechazo from "../Modales/ModalSolicitudesRechazo";
 import { useConductores } from "../../Context/Context";
 import Swal from "sweetalert2";
-
+import {Navigate} from 'react-router-dom'
 function SolicitudesCards() {
   const { SolicitudesPendientes, loading } = useConductores();
 
   return (
     <>
-      {SolicitudesPendientes.map(
+      {
+      SolicitudesPendientes.login ===false ? 
+      (
+       <Navigate to={"/pagina404"}/>
+      ):
+      ( 
+    
+      SolicitudesPendientes.map(
         ({
           idConductor,
           nombreCON,
@@ -118,7 +125,7 @@ function SolicitudesCards() {
             </tr>
           
         )
-      )}
+      ))}
       <ModalSolicitudesRechazo />
     </>
   );
